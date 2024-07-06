@@ -10,8 +10,8 @@ import java.io.IOException;
 public class UnoApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Menu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Juego.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1300, 850);
         stage.setTitle("Uno!");
         stage.setScene(scene);
         stage.show();

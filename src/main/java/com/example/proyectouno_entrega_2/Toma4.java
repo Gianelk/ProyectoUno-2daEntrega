@@ -1,8 +1,8 @@
 package com.example.proyectouno_entrega_2;
 
 public class Toma4 extends Comodin{
-    public Toma4(String numeroCarta, String color) {
-        super(numeroCarta, color);
+    public Toma4(String numeroCarta, String color,String url) {
+        super(numeroCarta, color,url);
     }
 
     public void tomar4Cartas(Jugador jugador, Mazo mazo){

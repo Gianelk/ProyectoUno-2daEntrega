@@ -3,12 +3,21 @@ package com.example.proyectouno_entrega_2;
 public class Carta {
     String numeroCarta;
     String color;
+    String url;
 
-    public Carta(String numeroCarta, String color) {
-        this.numeroCarta = numeroCarta;
+    public Carta(String url, String color, String numeroCarta) {
+        this.url = url;
         this.color = color;
+        this.numeroCarta = numeroCarta;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public Carta() {
     }

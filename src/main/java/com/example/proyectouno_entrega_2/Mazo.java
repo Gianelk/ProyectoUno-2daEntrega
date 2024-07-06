@@ -50,6 +50,7 @@ public class Mazo extends LinkedList<Carta>{
     public  void crearCartas() {
         String numeroCarta;
         String color;
+        String url;
         for (int j=0; j<4;j++) {
             switch (j) {
                 case 0:
@@ -68,18 +69,21 @@ public class Mazo extends LinkedList<Carta>{
                     throw new IllegalStateException("LOL: " + j);
             }
             for (int i = 0; i < 10; i++) {
-                String pasaTurno = Character.toString((char) 169);
                 numeroCarta = String.valueOf(i);
-                Carta carta = new Carta(numeroCarta, color);
+                url="src/main/resources/images/" +numeroCarta+" "+ color +".png";
+                Carta carta = new Carta(numeroCarta, color,url);
                 if (i == 0) {
                     mazo.add(carta);
-                    carta = new Toma2("+2", color);
+                    url="src/main/resources/images/" +"+2 "+ color +".png";
+                    carta = new Toma2("+2", color,url);
                     mazo.add(carta);
                     mazo.add(carta);
-                    carta = new Comodin("<>", color);
+                    url="src/main/resources/images/" +"X "+ color +".png";
+                    carta = new Comodin("X", color,url);
                     mazo.add(carta);
                     mazo.add(carta);
-                    carta = new Comodin(pasaTurno, color);
+                    url="src/main/resources/images/" +"C "+ color +".png";
+                    carta = new Comodin("C", color,url);
                     mazo.add(carta);
                     mazo.add(carta);
                 } else {
@@ -91,12 +95,15 @@ public class Mazo extends LinkedList<Carta>{
         this.crearCartasComodin();
     }
     public void crearCartasComodin() {
-        Carta carta =new Toma4("+4","negro");
+        String url;
+        url="src/main/resources/images/+4.png";
+        Carta carta =new Toma4("+4","negro",url);
         mazo.add(carta);
         mazo.add(carta);
         mazo.add(carta);
         mazo.add(carta);
-        carta=new Comodin("#","negro");
+        url="src/main/resources/images/#.png";
+        carta=new Comodin("#","negro",url);
         mazo.add(carta);
         mazo.add(carta);
         mazo.add(carta);

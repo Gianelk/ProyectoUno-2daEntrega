@@ -3,8 +3,8 @@ package com.example.proyectouno_entrega_2;
 import java.util.Scanner;
 
 public class Comodin extends Carta {
-    public Comodin(String numeroCarta, String color) {
-        super(numeroCarta, color);
+    public Comodin(String numeroCarta, String color, String url) {
+        super(numeroCarta, color,url);
     }
 
     public void cambiaColor(Mesa mazoMesa) {
