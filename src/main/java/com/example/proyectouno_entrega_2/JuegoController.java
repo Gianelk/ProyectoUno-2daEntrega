@@ -23,6 +23,19 @@ public class JuegoController {
     public ImageView P10;
     public ImageView P11;
 
+    public ImageView J1;
+    public ImageView J2;
+    public ImageView J3;
+    public ImageView J4;
+    public ImageView J5;
+    public ImageView J6;
+    public ImageView J7;
+    public ImageView J8;
+    public ImageView J9;
+    public ImageView J10;
+    public ImageView J11;
+
+
     @FXML
     public void prueba() throws FileNotFoundException {
         Mazo mazo=new Mazo();
@@ -120,6 +133,87 @@ public class JuegoController {
                     P11.setImage(image);
                 }
             }
+        }
+        for (int i = 0; i < 11; i++) {
+            if(i>=jugadores.getJugadores(1).getCartasDisponibles().tamanobaraja()){
+                if(i==1){
+                    J2.setImage(image2);
+                }
+                if(i==2){
+                    J3.setImage(image2);
+                }
+                if(i==3){
+                    J4.setImage(image2);
+                }
+                if(i==4){
+                    J5.setImage(image2);
+                }
+                if(i==5){
+                    J6.setImage(image2);
+                }
+                if(i==6){
+                    J7.setImage(image2);
+                }
+                if(i==7){
+                    J8.setImage(image2);
+                }
+                if(i==8){
+                    J9.setImage(image2);
+                }
+                if(i==9){
+                    J10.setImage(image2);
+                }
+                if(i==10){
+                    J11.setImage(image2);
+                }
+            }else {
+                Image image=new Image(new FileInputStream("src/main/resources/images/carta atras.jpg"));
+                if(i==0){
+
+                    J1.setImage(image);
+                }
+                if(i==1){
+
+                    J2.setImage(image);
+                }
+                if(i==2){
+
+                    J3.setImage(image);
+                }
+                if(i==3){
+
+                    J4.setImage(image);
+                }
+                if(i==4){
+
+                    J5.setImage(image);
+                }
+                if(i==5){
+
+                    J6.setImage(image);
+                }
+                if(i==6){
+
+                    J7.setImage(image);
+                }
+                if(i==7){
+
+                    J8.setImage(image);
+                }
+                if(i==8){
+
+                    J9.setImage(image);
+                }
+                if(i==9){
+
+                    J10.setImage(image);
+                }
+                if(i==10){
+
+                    J11.setImage(image);
+                }
+            }
+
         }
     }
 }
