@@ -5,7 +5,7 @@ public class Carta {
     String color;
     String url;
 
-    public Carta(String url, String color, String numeroCarta) {
+    public Carta(String numeroCarta, String color, String url) {
         this.url = url;
         this.color = color;
         this.numeroCarta = numeroCarta;

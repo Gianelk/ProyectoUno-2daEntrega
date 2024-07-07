@@ -2,7 +2,7 @@ package com.example.proyectouno_entrega_2;
 
 import java.util.LinkedList;
 import java.util.Random;
-//import java.util.Iterator;
+import java.util.Iterator;
 
 public class Mazo extends LinkedList<Carta>{
 
@@ -47,7 +47,7 @@ public class Mazo extends LinkedList<Carta>{
         }
 
     }
-    public  void crearCartas() {
+    public void crearCartas() {
         String numeroCarta;
         String color;
         String url;
