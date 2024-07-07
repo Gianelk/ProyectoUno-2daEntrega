@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -34,26 +35,36 @@ public class JuegoController {
     public ImageView J9;
     public ImageView J10;
     public ImageView J11;
+    public ImageView CartaMedio;
 
+
+
+
+    static Mazo mazo=new Mazo();
+    static Mesa mesa=new Mesa();
+    static Jugador jugador=new Jugador("Perro");
+    static Jugador jugadorBot=new Jugador("Joselito Bot");
+    static Jugadores jugadores=new Jugadores();
+    static LinkedList<Jugador> jugadors=new LinkedList<>();
+    static boolean cambiar=false;
 
     @FXML
-    public void prueba() throws FileNotFoundException {
-        Mazo mazo=new Mazo();
+    public void crear(){
         mazo.crearCartas();
-        Baraja baraja=new Baraja();
-        Jugador jugador=new Jugador("Perro");
-        Jugador jugador2=new Jugador("gato");
-        Jugadores jugadores=new Jugadores();
-        LinkedList<Jugador> jugadors=new LinkedList<>();
         jugadors.add(jugador);
-        jugadors.add(jugador2);
+        jugadors.add(jugadorBot);
         jugadores.setJugadores(jugadors);
         mazo.barajar();
+        mesa.iniciarMesa(mazo);
         mazo.repartirCartas(jugadores);
         jugadores.mostrarMiLista();
         jugadores.getJugadores(0).cartasDisponibles.mostrarMiBaraja();
         jugadores.getJugadores(1).cartasDisponibles.mostrarMiBaraja();
-        Image image2=new Image(new FileInputStream("src/main/resources/images/Blanco.png"));
+    }
+    @FXML
+    public void prueba() throws FileNotFoundException {
+        File file= new File("src/main/resources/images/Blanco.png");
+        Image image2=new Image(file.toURI().toString());
         for (int i=0;i<11;i++){
             if(i>=jugadores.getJugadores(0).getCartasDisponibles().tamanobaraja()){
                 if(i==1){
@@ -88,48 +99,39 @@ public class JuegoController {
                 }
             }
             else{
+                File file1= new File(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url);
+                Image image=new Image(file1.toURI().toString());
                 if(i==0){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P1.setImage(image);
                 }
                 if(i==1){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P2.setImage(image);
                 }
                 if(i==2){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P3.setImage(image);
                 }
                 if(i==3){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P4.setImage(image);
                 }
                 if(i==4){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P5.setImage(image);
                 }
                 if(i==5){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P6.setImage(image);
                 }
                 if(i==6){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P7.setImage(image);
                 }
                 if(i==7){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P8.setImage(image);
                 }
                 if(i==8){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P9.setImage(image);
                 }
                 if(i==9){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P10.setImage(image);
                 }
                 if(i==10){
-                    Image image=new Image(new FileInputStream(jugadores.getJugadores(0).getCartasDisponibles().getBaraja().get(i).url));
                     P11.setImage(image);
                 }
             }
@@ -215,5 +217,150 @@ public class JuegoController {
             }
 
         }
+       mesa.mostrarPrimera();
     }
+    public static void jugarCarta(int cartaJugar){
+        Jugador jugador= jugadores.getJugadores(0);
+        Baraja baraja= jugador.cartasDisponibles;
+        if(mesa.getPrimera().numeroCarta.equals(baraja.getCarta(cartaJugar).numeroCarta)||mesa.getColorMesa().equals(baraja.getCarta(cartaJugar).color)){
+            mesa.agregarPrimero(baraja.getCarta(cartaJugar));
+            jugador.cartasDisponibles.eliminar(cartaJugar);
+            cambiar=true;
+        }
+    }
+    @FXML
+    public void lanzarCartaP1(){
+        String imagen ="src/main/resources/images/"+(P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+         cambiar=false;
+        jugarCarta(0);
+        jugador= jugadores.getJugadores(0);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP2(){
+        String imagen ="src/main/resources/images/"+(P2.getImage().getUrl().toString().substring(P2.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(1);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP3(){
+        String imagen ="src/main/resources/images/"+(P3.getImage().getUrl().toString().substring(P3.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(2);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP4(){
+        String imagen ="src/main/resources/images/"+(P4.getImage().getUrl().toString().substring(P4.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(3);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP5(){
+        String imagen ="src/main/resources/images/"+(P5.getImage().getUrl().toString().substring(P5.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(4);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP6(){
+        String imagen ="src/main/resources/images/"+(P6.getImage().getUrl().toString().substring(P6.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(5);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP7(){
+        String imagen ="src/main/resources/images/"+(P7.getImage().getUrl().toString().substring(P7.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(6);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP8(){
+        String imagen ="src/main/resources/images/"+(P8.getImage().getUrl().toString().substring(P8.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(7);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP9(){
+        String imagen ="src/main/resources/images/"+(P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(8);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP10(){
+        String imagen ="src/main/resources/images/"+(P10.getImage().getUrl().toString().substring(P10.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(9);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+    @FXML
+    public void lanzarCartaP11(){
+        String imagen ="src/main/resources/images/"+(P11.getImage().getUrl().toString().substring(P11.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+        System.out.println(imagen);
+        cambiar=false;
+        jugarCarta(10);
+        if(cambiar){
+            File file1= new File(imagen);
+            Image image=new Image(file1.toURI().toString());
+            CartaMedio.setImage(image);
+        }
+    }
+
+
 }

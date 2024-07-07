@@ -38,8 +38,8 @@ public class Baraja extends LinkedList<Carta>{
         baraja.add(carta);
     }
 
-    public void eliminarUltimaCarta(){
-        baraja.remove();
+    public void eliminar(int i){
+        baraja.remove(i);
     }
 
     public  void mostrarMiBaraja() {
@@ -113,7 +113,9 @@ public class Baraja extends LinkedList<Carta>{
         System.out.print("     ["+"\033[33m"+baraja.size()+"\033[00m"+"]");
         System.out.println(" ");
     }
-
+public Carta getCarta(int i){
+       return baraja.get(i);
+    }
     public LinkedList<Integer> evaluarCarta(Mesa mazoMesa){
         LinkedList<Integer> posibilidades = new LinkedList<Integer>();
         String color;

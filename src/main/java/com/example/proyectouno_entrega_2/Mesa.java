@@ -54,6 +54,7 @@ public class Mesa extends LinkedList<Carta>{
             primera=mazo.getPrimeraMazo(i);
         }
         mazoMesa.add(primera);
+        colorMesa=mazoMesa.get(0).color;
         mazo.eliminarCarta(i);
     }
     public int  evaluarMesa(){
