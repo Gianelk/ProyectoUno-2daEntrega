@@ -5,9 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="850.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" layoutY="10.0" prefHeight="184.0" prefWidth="1300.0">
+      <ImageView fitHeight="962.0" fitWidth="1346.0" layoutY="-96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Background2.jpg" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutY="-11.0" prefHeight="184.0" prefWidth="1325.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -59,11 +64,11 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fitHeight="205.0" fitWidth="163.0" layoutX="577.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="205.0" fitWidth="163.0" layoutX="577.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/3%20R.png" />
          </image></ImageView>
-      <HBox alignment="BOTTOM_CENTER" layoutY="644.0" prefHeight="177.0" prefWidth="1300.0">
+      <HBox alignment="BOTTOM_CENTER" layoutX="-7.0" layoutY="516.0" prefHeight="177.0" prefWidth="1300.0">
          <children>
             <ImageView fx:id="P1" fitHeight="150.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -115,14 +120,14 @@
             </ImageView>
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="613.0" prefHeight="63.0" prefWidth="256.0" text="Player1">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="485.0" prefHeight="63.0" prefWidth="256.0" text="Player1" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="522.0" layoutY="162.0" prefHeight="63.0" prefWidth="256.0" text="JoselitoBot">
+      <Label alignment="CENTER" layoutX="522.0" layoutY="162.0" prefHeight="63.0" prefWidth="256.0" text="JoselitoBot" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
    </children>
