@@ -36,6 +36,7 @@ public class JuegoController {
     public ImageView J10;
     public ImageView J11;
     public ImageView CartaMedio;
+    public ImageView NoPuedesJugar;
 
 
 
@@ -65,6 +66,9 @@ public class JuegoController {
     public void prueba() throws FileNotFoundException {
         File file= new File("src/main/resources/images/Blanco.png");
         Image image2=new Image(file.toURI().toString());
+        File file2= new File(mesa.getPrimera().getUrl());
+        Image image3=new Image(file2.toURI().toString());
+        CartaMedio.setImage(image3);
         for (int i=0;i<11;i++){
             if(i>=jugadores.getJugadores(0).getCartasDisponibles().tamanobaraja()){
                 if(i==1){
@@ -229,16 +233,23 @@ public class JuegoController {
         }
     }
     @FXML
-    public void lanzarCartaP1(){
+    public void lanzarCartaP1() throws InterruptedException {
         String imagen ="src/main/resources/images/"+(P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
         System.out.println(imagen);
          cambiar=false;
         jugarCarta(0);
         jugador= jugadores.getJugadores(0);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -248,9 +259,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(1);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -260,9 +278,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(2);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -272,9 +297,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(3);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -284,9 +316,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(4);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -296,9 +335,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(5);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -308,9 +354,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(6);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -320,9 +373,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(7);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -332,9 +392,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(8);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -344,9 +411,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(9);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
     @FXML
@@ -356,9 +430,16 @@ public class JuegoController {
         cambiar=false;
         jugarCarta(10);
         if(cambiar){
+            File file4= new File("src/main/resources/images/Blanco.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
             File file1= new File(imagen);
             Image image=new Image(file1.toURI().toString());
             CartaMedio.setImage(image);
+        }else{
+            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
+            Image image4=new Image(file4.toURI().toString());
+            NoPuedesJugar.setImage(image4);
         }
     }
 

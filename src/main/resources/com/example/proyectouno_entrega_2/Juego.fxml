@@ -7,7 +7,7 @@
 
 <Pane prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectouno_entrega_2.JuegoController">
    <children>
-      <ImageView fitHeight="962.0" fitWidth="1346.0" layoutY="-96.0" onMouseClicked="#prueba" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="946.0" fitWidth="1336.0" layoutY="-96.0" onMouseClicked="#prueba" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/Background2.jpg" />
          </image>
@@ -130,6 +130,7 @@
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="925.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#crear" text="Button" />
+      <Button layoutX="941.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#crear" prefHeight="18.0" prefWidth="52.0" text="Button" />
+      <ImageView fx:id="NoPuedesJugar" fitHeight="150.0" fitWidth="200.0" layoutX="206.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
