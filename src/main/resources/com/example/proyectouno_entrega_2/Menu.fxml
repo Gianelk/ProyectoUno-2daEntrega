@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.proyectouno_entrega_2.MenuController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectouno_entrega_2.MenuController">
+   <children>
+      <ImageView fitHeight="611.0" fitWidth="837.0" layoutX="-14.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Background2.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#IniciarJuego" prefHeight="50.0" prefWidth="160.0" text="Nueva Partida" textAlignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="170.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="Cargar Partida">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="170.0" layoutY="401.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="Salir">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

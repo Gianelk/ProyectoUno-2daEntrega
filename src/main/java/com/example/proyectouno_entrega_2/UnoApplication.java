@@ -13,8 +13,8 @@ import java.util.Objects;
 public class UnoApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Juego.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Menu.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 500, 600);
         String filePath = "src/main/resources/images/icono.png";
         Image icon = new Image(new File(filePath).toURI().toString());
         stage.getIcons().add(icon);
