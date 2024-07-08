@@ -70,50 +70,50 @@
          </image></ImageView>
       <HBox alignment="BOTTOM_CENTER" layoutX="-7.0" layoutY="516.0" prefHeight="177.0" prefWidth="1300.0">
          <children>
-            <ImageView fx:id="P11" fitHeight="150.0" fitWidth="115.0" onMouseClicked="#lanzarCartaP11" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P11" fitHeight="150.0" fitWidth="115.0" onMouseClicked="#lanzarCartaP11" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image></ImageView>
-            <ImageView fx:id="P9" fitHeight="150.0" fitWidth="115.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#lanzarCartaP9" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P9" fitHeight="150.0" fitWidth="115.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#lanzarCartaP9" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image></ImageView>
-            <ImageView fx:id="P7" fitHeight="150.0" fitWidth="115.0" layoutX="125.0" layoutY="10.0" onMouseClicked="#lanzarCartaP7" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P7" fitHeight="150.0" fitWidth="115.0" layoutX="125.0" layoutY="10.0" onMouseClicked="#lanzarCartaP7" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image></ImageView>
-            <ImageView fx:id="P5" fitHeight="150.0" fitWidth="115.0" layoutX="240.0" layoutY="10.0" onMouseClicked="#lanzarCartaP5" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P5" fitHeight="150.0" fitWidth="115.0" layoutX="240.0" layoutY="10.0" onMouseClicked="#lanzarCartaP5" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image></ImageView>
-            <ImageView fx:id="P3" fitHeight="150.0" fitWidth="115.0" layoutX="355.0" layoutY="10.0" onMouseClicked="#lanzarCartaP3" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P3" fitHeight="150.0" fitWidth="115.0" layoutX="355.0" layoutY="10.0" onMouseClicked="#lanzarCartaP3" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image></ImageView>
-            <ImageView fx:id="P1" fitHeight="150.0" fitWidth="115.0" layoutX="470.0" layoutY="10.0" onMouseClicked="#lanzarCartaP1" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P1" fitHeight="150.0" fitWidth="115.0" layoutX="470.0" layoutY="10.0" onMouseClicked="#lanzarCartaP1" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image></ImageView>
-            <ImageView fx:id="P2" fitHeight="150.0" fitWidth="115.0" layoutX="585.0" layoutY="10.0" onMouseClicked="#lanzarCartaP2" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P2" fitHeight="150.0" fitWidth="115.0" layoutX="585.0" layoutY="10.0" onMouseClicked="#lanzarCartaP2" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image></ImageView>
-            <ImageView fx:id="P4" fitHeight="150.0" fitWidth="115.0" layoutX="250.0" layoutY="37.0" onMouseClicked="#lanzarCartaP4" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P4" fitHeight="150.0" fitWidth="115.0" layoutX="250.0" layoutY="37.0" onMouseClicked="#lanzarCartaP4" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="P6" fitHeight="150.0" fitWidth="115.0" layoutX="196.0" layoutY="37.0" onMouseClicked="#lanzarCartaP6" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P6" fitHeight="150.0" fitWidth="115.0" layoutX="196.0" layoutY="37.0" onMouseClicked="#lanzarCartaP6" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="P8" fitHeight="150.0" fitWidth="115.0" layoutX="143.0" layoutY="37.0" onMouseClicked="#lanzarCartaP8" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P8" fitHeight="150.0" fitWidth="115.0" layoutX="143.0" layoutY="37.0" onMouseClicked="#lanzarCartaP8" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="P10" fitHeight="150.0" fitWidth="115.0" layoutX="89.0" layoutY="37.0" onMouseClicked="#lanzarCartaP10" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="P10" fitHeight="150.0" fitWidth="115.0" layoutX="89.0" layoutY="37.0" onMouseClicked="#lanzarCartaP10" onMouseExited="#prueba" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Blanco.png" />
                </image>
