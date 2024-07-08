@@ -230,6 +230,8 @@ public class JuegoController {
             mesa.agregarPrimero(baraja.getCarta(cartaJugar));
             jugador.cartasDisponibles.eliminar(cartaJugar);
             cambiar=true;
+            Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+            barajabot.jugadaBot(mesa,mazo);
         }
     }
     @FXML
@@ -237,19 +239,30 @@ public class JuegoController {
         String imagen ="src/main/resources/images/"+(P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
         System.out.println(imagen);
          cambiar=false;
-        jugarCarta(0);
-        jugador= jugadores.getJugadores(0);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
+        LinkedList<Integer> posibilidades= new LinkedList<Integer>();
+        Jugador jugador= jugadores.getJugadores(0);
+        Baraja baraja= jugador.cartasDisponibles;
+        posibilidades= baraja.evaluarCarta(mesa);
+        System.out.println(posibilidades);
+        if(!posibilidades.isEmpty()) {
+            jugarCarta(0);
+            if (cambiar) {
+                File file4 = new File("src/main/resources/images/Blanco.jpg");
+                Image image4 = new Image(file4.toURI().toString());
+                NoPuedesJugar.setImage(image4);
+                File file1 = new File(imagen);
+                Image image = new Image(file1.toURI().toString());
+                CartaMedio.setImage(image);
+            } else {
+                File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                Image image4 = new Image(file4.toURI().toString());
+                NoPuedesJugar.setImage(image4);
+            }
         }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+            baraja.agregarCarta(mazo.getPrimeraMazo(0));
+            mazo.eliminarCarta(0);
+            Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+            barajabot.jugadaBot(mesa,mazo);
         }
     }
     @FXML
@@ -257,7 +270,12 @@ public class JuegoController {
         String imagen ="src/main/resources/images/"+(P2.getImage().getUrl().toString().substring(P2.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
         System.out.println(imagen);
         cambiar=false;
-        jugarCarta(1);
+        LinkedList<Integer> posibilidades= new LinkedList<Integer>();
+        Jugador jugador= jugadores.getJugadores(0);
+        Baraja baraja= jugador.cartasDisponibles;
+        posibilidades= baraja.evaluarCarta(mesa);
+        if(!posibilidades.isEmpty()){
+            jugarCarta(1);
         if(cambiar){
             File file4= new File("src/main/resources/images/Blanco.jpg");
             Image image4=new Image(file4.toURI().toString());
@@ -269,179 +287,282 @@ public class JuegoController {
             File file4= new File("src/main/resources/images/no se puede jugar.jpg");
             Image image4=new Image(file4.toURI().toString());
             NoPuedesJugar.setImage(image4);
+        }
+        }else{
+            baraja.agregarCarta(mazo.getPrimeraMazo(0));
+            mazo.eliminarCarta(0);
+            Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+            barajabot.jugadaBot(mesa,mazo);
         }
     }
     @FXML
-    public void lanzarCartaP3(){
-        String imagen ="src/main/resources/images/"+(P3.getImage().getUrl().toString().substring(P3.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
+    public void lanzarCartaP3() {
+        String imagen = "src/main/resources/images/" + (P3.getImage().getUrl().toString().substring(P3.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(2);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
+        cambiar = false;
+        LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+        Jugador jugador = jugadores.getJugadores(0);
+        Baraja baraja = jugador.cartasDisponibles;
+        posibilidades = baraja.evaluarCarta(mesa);
+        if (!posibilidades.isEmpty()) {
+            jugarCarta(2);
+            if (cambiar) {
+                File file4 = new File("src/main/resources/images/Blanco.jpg");
+                Image image4 = new Image(file4.toURI().toString());
+                NoPuedesJugar.setImage(image4);
+                File file1 = new File(imagen);
+                Image image = new Image(file1.toURI().toString());
+                CartaMedio.setImage(image);
+            } else {
+                File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                Image image4 = new Image(file4.toURI().toString());
+                NoPuedesJugar.setImage(image4);
+            }
         }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-        }
+        baraja.agregarCarta(mazo.getPrimeraMazo(0));
+        mazo.eliminarCarta(0);
+        Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+        barajabot.jugadaBot(mesa,mazo);
     }
-    @FXML
-    public void lanzarCartaP4(){
-        String imagen ="src/main/resources/images/"+(P4.getImage().getUrl().toString().substring(P4.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(3);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-        }
     }
-    @FXML
-    public void lanzarCartaP5(){
-        String imagen ="src/main/resources/images/"+(P5.getImage().getUrl().toString().substring(P5.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(4);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+        @FXML
+        public void lanzarCartaP4 () {
+            String imagen = "src/main/resources/images/" + (P4.getImage().getUrl().toString().substring(P4.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(3);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
         }
-    }
-    @FXML
-    public void lanzarCartaP6(){
-        String imagen ="src/main/resources/images/"+(P6.getImage().getUrl().toString().substring(P6.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(5);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+        @FXML
+        public void lanzarCartaP5 () {
+            String imagen = "src/main/resources/images/" + (P5.getImage().getUrl().toString().substring(P5.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(4);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
         }
-    }
-    @FXML
-    public void lanzarCartaP7(){
-        String imagen ="src/main/resources/images/"+(P7.getImage().getUrl().toString().substring(P7.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(6);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+        @FXML
+        public void lanzarCartaP6 () {
+            String imagen = "src/main/resources/images/" + (P6.getImage().getUrl().toString().substring(P6.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(5);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
         }
-    }
-    @FXML
-    public void lanzarCartaP8(){
-        String imagen ="src/main/resources/images/"+(P8.getImage().getUrl().toString().substring(P8.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(7);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+        @FXML
+        public void lanzarCartaP7 () {
+            String imagen = "src/main/resources/images/" + (P7.getImage().getUrl().toString().substring(P7.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(6);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
         }
-    }
-    @FXML
-    public void lanzarCartaP9(){
-        String imagen ="src/main/resources/images/"+(P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(8);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+        @FXML
+        public void lanzarCartaP8 () {
+            String imagen = "src/main/resources/images/" + (P8.getImage().getUrl().toString().substring(P8.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(7);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
         }
-    }
-    @FXML
-    public void lanzarCartaP10(){
-        String imagen ="src/main/resources/images/"+(P10.getImage().getUrl().toString().substring(P10.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(9);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+        @FXML
+        public void lanzarCartaP9 () {
+            String imagen = "src/main/resources/images/" + (P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(8);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
         }
-    }
-    @FXML
-    public void lanzarCartaP11(){
-        String imagen ="src/main/resources/images/"+(P11.getImage().getUrl().toString().substring(P11.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
-        System.out.println(imagen);
-        cambiar=false;
-        jugarCarta(10);
-        if(cambiar){
-            File file4= new File("src/main/resources/images/Blanco.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
-            File file1= new File(imagen);
-            Image image=new Image(file1.toURI().toString());
-            CartaMedio.setImage(image);
-        }else{
-            File file4= new File("src/main/resources/images/no se puede jugar.jpg");
-            Image image4=new Image(file4.toURI().toString());
-            NoPuedesJugar.setImage(image4);
+        @FXML
+        public void lanzarCartaP10 () {
+            String imagen = "src/main/resources/images/" + (P10.getImage().getUrl().toString().substring(P10.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(9);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
         }
-    }
-
-
+        @FXML
+        public void lanzarCartaP11 () {
+            String imagen = "src/main/resources/images/" + (P11.getImage().getUrl().toString().substring(P11.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
+            System.out.println(imagen);
+            cambiar = false;
+            LinkedList<Integer> posibilidades = new LinkedList<Integer>();
+            Jugador jugador = jugadores.getJugadores(0);
+            Baraja baraja = jugador.cartasDisponibles;
+            posibilidades = baraja.evaluarCarta(mesa);
+            if (!posibilidades.isEmpty()) {
+                jugarCarta(10);
+                if (cambiar) {
+                    File file4 = new File("src/main/resources/images/Blanco.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                    File file1 = new File(imagen);
+                    Image image = new Image(file1.toURI().toString());
+                    CartaMedio.setImage(image);
+                } else {
+                    File file4 = new File("src/main/resources/images/no se puede jugar.jpg");
+                    Image image4 = new Image(file4.toURI().toString());
+                    NoPuedesJugar.setImage(image4);
+                }
+            } else {
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                mazo.eliminarCarta(0);
+                Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+                barajabot.jugadaBot(mesa,mazo);
+            }
+        }
 }
