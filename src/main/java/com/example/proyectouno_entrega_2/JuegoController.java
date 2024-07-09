@@ -48,6 +48,7 @@ public class JuegoController {
     static Jugadores jugadores=new Jugadores();
     static LinkedList<Jugador> jugadors=new LinkedList<>();
     static boolean cambiar=false;
+    static int j=1;
 
     @FXML
     public void crear(){
@@ -221,17 +222,69 @@ public class JuegoController {
             }
 
         }
-       mesa.mostrarPrimera();
+    }
+    public static void evaluarBot(){
+        Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
+        System.out.println(mesa.getPrimera().numeroCarta);
+        if (mesa.evaluarMesa() == 1) {
+            mesa.setColorMesa(barajabot.elegirColor());
+        }
+        if(mesa.getPrimera().numeroCarta.equals("+2")||mesa.getPrimera().numeroCarta.equals("C")||mesa.getPrimera().numeroCarta.equals("X")||mesa.getPrimera().numeroCarta.equals("+4")){
+        String numero = mesa.getPrimera().numeroCarta;
+        j=0;
+        switch (numero) {
+            case "+2":
+                Toma2 toma2;
+                toma2 = mesa.getToma2();
+                toma2.tomar2Cartas( jugadores.getJugadores(0),mazo);
+                break;
+            case "+4":
+                Toma4 toma4;
+                toma4 = mesa.getToma4();
+                toma4.tomar4Cartas(jugadores.getJugadores(0),mazo);
+                break;
+        }
+        LinkedList<Integer> posibilidadesBot=barajabot.evaluarCarta(mesa);
+        if(!posibilidadesBot.isEmpty()){
+            barajabot.jugadaBot(mesa,mazo);
+            evaluarBot();}else{
+            barajabot.agregarCarta(mazo.getPrimeraMazo(0));
+            mazo.eliminarCarta(0);
+        }
+    }
     }
     public static void jugarCarta(int cartaJugar){
         Jugador jugador= jugadores.getJugadores(0);
         Baraja baraja= jugador.cartasDisponibles;
-        if(mesa.getPrimera().numeroCarta.equals(baraja.getCarta(cartaJugar).numeroCarta)||mesa.getColorMesa().equals(baraja.getCarta(cartaJugar).color)){
+        int tamanoBaraja = baraja.tamanobaraja();
+        if(mesa.getPrimera().numeroCarta.equals(baraja.getCarta(cartaJugar).numeroCarta)||(mesa.getColorMesa().equals(baraja.getCarta(cartaJugar).color))||(baraja.getCarta(cartaJugar).color.equals("negro"))){
             mesa.agregarPrimero(baraja.getCarta(cartaJugar));
             jugador.cartasDisponibles.eliminar(cartaJugar);
             cambiar=true;
+            if (mesa.evaluarMesa() == 1) {
+                Comodin comodin;
+                comodin = mesa.getComodin();
+                comodin.cambiaColor(mesa);
+            }
+            if(mesa.getPrimera().numeroCarta.equals("+2")||mesa.getPrimera().numeroCarta.equals("C")||mesa.getPrimera().numeroCarta.equals("X")||mesa.getPrimera().numeroCarta.equals("+4")){
+                String numero = mesa.getPrimera().numeroCarta;
+                switch (numero) {
+                    case "+2":
+                        Toma2 toma2;
+                        toma2 = mesa.getToma2();
+                        toma2.tomar2Cartas( jugadores.getJugadores(1),mazo);
+                        break;
+                    case "+4":
+                        Toma4 toma4;
+                        toma4 = mesa.getToma4();
+                        toma4.tomar4Cartas(jugadores.getJugadores(1),mazo);
+                        break;
+                }
+            }else{
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa,mazo);
+            evaluarBot();
+            }
         }
     }
     @FXML
@@ -263,6 +316,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa,mazo);
+            evaluarBot();
         }
     }
     @FXML
@@ -293,6 +347,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa,mazo);
+            evaluarBot();
         }
     }
     @FXML
@@ -323,6 +378,7 @@ public class JuegoController {
         mazo.eliminarCarta(0);
         Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
         barajabot.jugadaBot(mesa,mazo);
+            evaluarBot();
     }
     }
         @FXML
@@ -353,6 +409,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
         @FXML
@@ -383,6 +440,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
         @FXML
@@ -413,6 +471,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
         @FXML
@@ -443,6 +502,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
         @FXML
@@ -473,6 +533,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
         @FXML
@@ -503,6 +564,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
         @FXML
@@ -533,6 +595,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
         @FXML
@@ -563,6 +626,7 @@ public class JuegoController {
                 mazo.eliminarCarta(0);
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
+                evaluarBot();
             }
         }
 }
