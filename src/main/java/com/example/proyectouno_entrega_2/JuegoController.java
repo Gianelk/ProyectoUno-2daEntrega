@@ -1,15 +1,11 @@
 package com.example.proyectouno_entrega_2;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import com.google.gson.Gson;
@@ -22,7 +18,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 import static com.example.proyectouno_entrega_2.Comodin.ventanaColor;
 
@@ -241,7 +236,20 @@ public class JuegoController {
 
         }
     }
-
+    public static void Ganar(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaGanar.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void Perder(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaPerder.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
+        stage.setScene(scene);
+        stage.show();
+    }
     public static void ordenar() {
         Baraja baraja = jugadores.getJugadores(0).cartasDisponibles;
         LinkedList<Integer> posibilidades = baraja.evaluarCarta(mesa);
@@ -263,7 +271,7 @@ public class JuegoController {
     }
 
     @FXML
-    public static void evaluarBot() {
+    public static void evaluarBot(MouseEvent event) throws IOException {
         Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
         System.out.println(mesa.getPrimera().numeroCarta);
         if (mesa.evaluarMesa() == 1) {
@@ -284,17 +292,18 @@ public class JuegoController {
                     toma4.tomar4Cartas(jugadores.getJugadores(0), mazo);
                     break;
             }
-            if (barajabot.tamanobaraja() == 0) {
-                System.out.println("ganaste bot");
-            }
             LinkedList<Integer> posibilidadesBot = barajabot.evaluarCarta(mesa);
             if (!posibilidadesBot.isEmpty()) {
                 barajabot.jugadaBot(mesa, mazo);
-                evaluarBot();
+                evaluarBot(event);
             } else {
                 barajabot.agregarCarta(mazo.getPrimeraMazo(0));
                 mazo.eliminarCarta(0);
             }
+        }
+        if (barajabot.tamanobaraja() == 0) {
+            System.out.println("ganaste bot");
+            Perder(event);
         }
         ordenar();
         rearmarMazo();
@@ -330,7 +339,8 @@ public class JuegoController {
             } else {
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa, mazo);
-                evaluarBot();
+                MouseEvent event = null;
+                evaluarBot(event);
             }
         }
         rearmarMazo();
@@ -345,7 +355,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP1() throws InterruptedException, IOException {
+    public void lanzarCartaP1(MouseEvent event) throws InterruptedException, IOException {
         String imagen = "src/main/resources/images/" + (P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -373,7 +383,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -386,12 +396,13 @@ public class JuegoController {
         }
         if (baraja.tamanobaraja() == 0) {
             System.out.println("ganaste");
+            Ganar(event);
         }
 //Pnatalla de ganaste, solo se pone en p1 poruqe si tienes 1 siempre va a estar en p1
     }
 
     @FXML
-    public void lanzarCartaP2() throws IOException {
+    public void lanzarCartaP2(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P2.getImage().getUrl().toString().substring(P2.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -418,7 +429,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -432,7 +443,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP3() throws IOException {
+    public void lanzarCartaP3(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P3.getImage().getUrl().toString().substring(P3.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -459,7 +470,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -473,7 +484,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP4() throws IOException {
+    public void lanzarCartaP4(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P4.getImage().getUrl().toString().substring(P4.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -500,7 +511,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -514,7 +525,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP5() throws IOException {
+    public void lanzarCartaP5(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P5.getImage().getUrl().toString().substring(P5.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -541,7 +552,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -555,7 +566,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP6() throws IOException {
+    public void lanzarCartaP6(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P6.getImage().getUrl().toString().substring(P6.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -582,7 +593,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -596,7 +607,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP7() throws IOException {
+    public void lanzarCartaP7(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P7.getImage().getUrl().toString().substring(P7.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -623,7 +634,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -637,7 +648,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP8() throws IOException {
+    public void lanzarCartaP8(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P8.getImage().getUrl().toString().substring(P8.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -664,7 +675,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -678,7 +689,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP9() throws IOException {
+    public void lanzarCartaP9(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -705,7 +716,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -719,7 +730,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP10() throws IOException {
+    public void lanzarCartaP10(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P10.getImage().getUrl().toString().substring(P10.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -746,7 +757,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
@@ -760,7 +771,7 @@ public class JuegoController {
     }
 
     @FXML
-    public void lanzarCartaP11() throws IOException {
+    public void lanzarCartaP11(MouseEvent event) throws IOException {
         String imagen = "src/main/resources/images/" + (P11.getImage().getUrl().toString().substring(P11.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -787,7 +798,7 @@ public class JuegoController {
             mazo.eliminarCarta(0);
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa, mazo);
-            evaluarBot();
+            evaluarBot(event);
         }
         if (baraja.tamanobaraja() == 1) {
             File file2 = new File("src/main/resources/images/Uno.png");
