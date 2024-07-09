@@ -277,6 +277,8 @@ public class JuegoController {
                 toma4.tomar4Cartas(jugadores.getJugadores(0),mazo);
                 break;
         }
+            if(barajabot.tamanobaraja()==0){
+                System.out.println("ganaste bot");}
         LinkedList<Integer> posibilidadesBot=barajabot.evaluarCarta(mesa);
         if(!posibilidadesBot.isEmpty()){
             barajabot.jugadaBot(mesa,mazo);
