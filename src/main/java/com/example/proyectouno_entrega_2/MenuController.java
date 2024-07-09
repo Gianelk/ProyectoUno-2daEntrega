@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 import java.io.IOException;
 import javafx.scene.control.ButtonType;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class MenuController {
     @FXML
@@ -61,5 +63,14 @@ public class MenuController {
         JuegoController.mesa.setColorMesa("G");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
+    }
+    @FXML
+    public void iniciarGuardado(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Juego.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
+        stage.setScene(scene);
+        stage.show();
+        JuegoController.usarJson();
     }
 }

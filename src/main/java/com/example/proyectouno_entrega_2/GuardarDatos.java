@@ -56,4 +56,5 @@ public class GuardarDatos {
                 ", nombre='" + nombreJugador + '\'' +
                 '}';
     }
+
 }

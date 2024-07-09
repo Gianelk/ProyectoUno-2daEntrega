@@ -17,7 +17,7 @@
             <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="170.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="Cargar Partida">
+      <Button layoutX="170.0" layoutY="275.0" mnemonicParsing="false" onAction="#iniciarGuardado" prefHeight="50.0" prefWidth="160.0" text="Cargar Partida">
          <font>
             <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
