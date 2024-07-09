@@ -5,18 +5,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import static com.example.proyectouno_entrega_2.Comodin.ventanaColor;
 
@@ -48,7 +50,9 @@ public class JuegoController {
     public ImageView NoPuedesJugar;
     public Label nombreBot;
     public Label nombreJugador;
+    public ImageView mostrarUno;
 
+    static boolean verificar=false;
     static Mazo mazo=new Mazo();
     static Mesa mesa=new Mesa();
     static Jugador jugador=new Jugador("Perro");
@@ -243,6 +247,7 @@ public class JuegoController {
         }
         System.out.println(posibilidades);
     }
+    @FXML
     public static void evaluarBot(){
         Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
         System.out.println(mesa.getPrimera().numeroCarta);
@@ -267,11 +272,11 @@ public class JuegoController {
         LinkedList<Integer> posibilidadesBot=barajabot.evaluarCarta(mesa);
         if(!posibilidadesBot.isEmpty()){
             barajabot.jugadaBot(mesa,mazo);
-            evaluarBot();}else{
+            evaluarBot();}
+        else{
             barajabot.agregarCarta(mazo.getPrimeraMazo(0));
             mazo.eliminarCarta(0);
         }
-
     }
         ordenar();
     }
@@ -310,6 +315,7 @@ public class JuegoController {
         }
         ordenar();
     }
+
     @FXML
     public void lanzarCartaP1() throws InterruptedException, IOException {
         String imagen ="src/main/resources/images/"+(P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
@@ -340,6 +346,16 @@ public class JuegoController {
             Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
             barajabot.jugadaBot(mesa,mazo);
             evaluarBot();
+        }
+        if (baraja.tamanobaraja()==1){
+            File file2=new File("src/main/resources/images/Uno.png");
+            Image image=new Image(file2.toURI().toString());
+            mostrarUno.setImage(image);
+        }
+        else{
+            File file2=new File("src/main/resources/images/Blanco.png");
+            Image image=new Image(file2.toURI().toString());
+            mostrarUno.setImage(image);
         }
     }
     @FXML
@@ -372,6 +388,16 @@ public class JuegoController {
             barajabot.jugadaBot(mesa,mazo);
             evaluarBot();
         }
+        if (baraja.tamanobaraja()==1){
+            File file2=new File("src/main/resources/images/Uno.png");
+            Image image=new Image(file2.toURI().toString());
+            mostrarUno.setImage(image);
+        }
+        else{
+            File file2=new File("src/main/resources/images/Blanco.png");
+            Image image=new Image(file2.toURI().toString());
+            mostrarUno.setImage(image);
+        }
     }
     @FXML
     public void lanzarCartaP3() throws IOException {
@@ -403,6 +429,16 @@ public class JuegoController {
         barajabot.jugadaBot(mesa,mazo);
             evaluarBot();
     }
+        if (baraja.tamanobaraja()==1){
+            File file2=new File("src/main/resources/images/Uno.png");
+            Image image=new Image(file2.toURI().toString());
+            mostrarUno.setImage(image);
+        }
+        else{
+            File file2=new File("src/main/resources/images/Blanco.png");
+            Image image=new Image(file2.toURI().toString());
+            mostrarUno.setImage(image);
+        }
     }
         @FXML
         public void lanzarCartaP4 () throws IOException {
@@ -434,7 +470,18 @@ public class JuegoController {
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
             }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
         }
+
         @FXML
         public void lanzarCartaP5 () throws IOException {
             String imagen = "src/main/resources/images/" + (P5.getImage().getUrl().toString().substring(P5.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
@@ -464,6 +511,16 @@ public class JuegoController {
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
+            }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
             }
         }
         @FXML
@@ -496,6 +553,16 @@ public class JuegoController {
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
             }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
         }
         @FXML
         public void lanzarCartaP7 () throws IOException {
@@ -526,6 +593,16 @@ public class JuegoController {
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
+            }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
             }
         }
         @FXML
@@ -558,6 +635,16 @@ public class JuegoController {
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
             }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
         }
         @FXML
         public void lanzarCartaP9 () throws IOException {
@@ -588,6 +675,16 @@ public class JuegoController {
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
+            }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
             }
         }
         @FXML
@@ -620,6 +717,16 @@ public class JuegoController {
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
             }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
         }
         @FXML
         public void lanzarCartaP11 () throws IOException {
@@ -651,5 +758,16 @@ public class JuegoController {
                 barajabot.jugadaBot(mesa,mazo);
                 evaluarBot();
             }
+            if (baraja.tamanobaraja()==1){
+                File file2=new File("src/main/resources/images/Uno.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
+            else{
+                File file2=new File("src/main/resources/images/Blanco.png");
+                Image image=new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
         }
+
 }
