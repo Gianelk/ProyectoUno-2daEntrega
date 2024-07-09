@@ -12,7 +12,7 @@
             <Image url="@../../../images/Background2.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#IniciarJuego" prefHeight="50.0" prefWidth="160.0" text="Nueva Partida" textAlignment="CENTER">
+      <Button layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#IniciarJuego" onMouseClicked="#IniciarJuego" prefHeight="50.0" prefWidth="160.0" text="Nueva Partida" textAlignment="CENTER">
          <font>
             <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
@@ -22,7 +22,7 @@
             <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="170.0" layoutY="401.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="Salir">
+      <Button layoutX="170.0" layoutY="401.0" mnemonicParsing="false" onAction="#Salir" prefHeight="50.0" prefWidth="160.0" text="Salir">
          <font>
             <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
