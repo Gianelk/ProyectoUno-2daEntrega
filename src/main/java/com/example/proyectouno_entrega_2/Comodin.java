@@ -1,5 +1,17 @@
 package com.example.proyectouno_entrega_2;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import org.controlsfx.control.action.Action;
+import java.io.IOException;
+import javafx.scene.control.ButtonType;
 import java.util.Scanner;
 
 public class Comodin extends Carta {
@@ -9,6 +21,7 @@ public class Comodin extends Carta {
 
     public void cambiaColor(Mesa mazoMesa) {
         Scanner leer = new Scanner(System.in);
+
         System.out.println("Seleccione el color al que desea cambiar");
         System.out.println(" ");
         System.out.println("[0]" + "\033[31m" + "Rojo" + "\033[00m" + " [1]" + "\033[34m" + "Azul" + "\033[00m" + "\033[00m" + " [2]" + "\033[33m" + "Amarillo" + "\033[00m" + " [3]" + "\033[32m" + "Verde"+"\033[00m");
@@ -31,4 +44,16 @@ public class Comodin extends Carta {
                 throw new IllegalStateException("LOL: " + i);
 
         }
-    }}
+    }
+    @FXML
+    public static void ventanaColor() throws IOException {
+        Stage VentanaEmergente = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Menu2.fxml"));
+        Scene scene= new Scene(fxmlLoader.load(),400,400);
+        VentanaEmergente.setScene(scene);
+        VentanaEmergente.show();
+    }
+
+
+
+}

@@ -34,7 +34,9 @@ public class Baraja extends LinkedList<Carta> {
     public void agregarCarta(Carta carta) {
         baraja.add(carta);
     }
-
+    public void agregarCartaPrimero(Carta carta) {
+        baraja.addFirst(carta);
+    }
     public void eliminar(int i) {
         baraja.remove(i);
     }

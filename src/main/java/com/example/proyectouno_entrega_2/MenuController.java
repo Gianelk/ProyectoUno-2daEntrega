@@ -35,4 +35,31 @@ public class MenuController {
             stage.close();
         }
     }
+
+    @FXML
+    public void azul(ActionEvent event) throws IOException {
+        JuegoController.mesa.setColorMesa("B");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    public void amarillo(ActionEvent event) throws IOException {
+        JuegoController.mesa.setColorMesa("Y");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    public void rojo(ActionEvent event) throws IOException {
+        JuegoController.mesa.setColorMesa("R");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+
+
+    }
+    @FXML
+    public void verde(ActionEvent event) throws IOException {
+        JuegoController.mesa.setColorMesa("G");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 }

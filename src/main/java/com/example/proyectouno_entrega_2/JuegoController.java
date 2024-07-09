@@ -1,5 +1,6 @@
 package com.example.proyectouno_entrega_2;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,13 +9,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
+
+import static com.example.proyectouno_entrega_2.Comodin.ventanaColor;
 
 public class JuegoController {
     public ImageView P1;
@@ -229,6 +233,16 @@ public class JuegoController {
 
         }
     }
+    public static void ordenar(){
+        Baraja baraja = jugadores.getJugadores(0).cartasDisponibles;
+        LinkedList<Integer> posibilidades=baraja.evaluarCarta(mesa);
+        for (int i=0;i<posibilidades.size();i++){
+            baraja.agregarCartaPrimero(baraja.getCarta(posibilidades.get(i)));
+            baraja.eliminar(posibilidades.get(i)+1);
+
+        }
+        System.out.println(posibilidades);
+    }
     public static void evaluarBot(){
         Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
         System.out.println(mesa.getPrimera().numeroCarta);
@@ -257,9 +271,11 @@ public class JuegoController {
             barajabot.agregarCarta(mazo.getPrimeraMazo(0));
             mazo.eliminarCarta(0);
         }
+
     }
+        ordenar();
     }
-    public static void jugarCarta(int cartaJugar){
+    public static void jugarCarta(int cartaJugar) throws IOException {
         Jugador jugador= jugadores.getJugadores(0);
         Baraja baraja= jugador.cartasDisponibles;
         int tamanoBaraja = baraja.tamanobaraja();
@@ -270,7 +286,7 @@ public class JuegoController {
             if (mesa.evaluarMesa() == 1) {
                 Comodin comodin;
                 comodin = mesa.getComodin();
-                comodin.cambiaColor(mesa);
+                ventanaColor();
             }
             if(mesa.getPrimera().numeroCarta.equals("+2")||mesa.getPrimera().numeroCarta.equals("C")||mesa.getPrimera().numeroCarta.equals("X")||mesa.getPrimera().numeroCarta.equals("+4")){
                 String numero = mesa.getPrimera().numeroCarta;
@@ -292,9 +308,10 @@ public class JuegoController {
             evaluarBot();
             }
         }
+        ordenar();
     }
     @FXML
-    public void lanzarCartaP1() throws InterruptedException {
+    public void lanzarCartaP1() throws InterruptedException, IOException {
         String imagen ="src/main/resources/images/"+(P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
         System.out.println(imagen);
          cambiar=false;
@@ -326,7 +343,7 @@ public class JuegoController {
         }
     }
     @FXML
-    public void lanzarCartaP2(){
+    public void lanzarCartaP2() throws IOException {
         String imagen ="src/main/resources/images/"+(P2.getImage().getUrl().toString().substring(P2.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20"," ");
         System.out.println(imagen);
         cambiar=false;
@@ -357,7 +374,7 @@ public class JuegoController {
         }
     }
     @FXML
-    public void lanzarCartaP3() {
+    public void lanzarCartaP3() throws IOException {
         String imagen = "src/main/resources/images/" + (P3.getImage().getUrl().toString().substring(P3.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
         System.out.println(imagen);
         cambiar = false;
@@ -388,7 +405,7 @@ public class JuegoController {
     }
     }
         @FXML
-        public void lanzarCartaP4 () {
+        public void lanzarCartaP4 () throws IOException {
             String imagen = "src/main/resources/images/" + (P4.getImage().getUrl().toString().substring(P4.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;
@@ -419,7 +436,7 @@ public class JuegoController {
             }
         }
         @FXML
-        public void lanzarCartaP5 () {
+        public void lanzarCartaP5 () throws IOException {
             String imagen = "src/main/resources/images/" + (P5.getImage().getUrl().toString().substring(P5.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;
@@ -450,7 +467,7 @@ public class JuegoController {
             }
         }
         @FXML
-        public void lanzarCartaP6 () {
+        public void lanzarCartaP6 () throws IOException {
             String imagen = "src/main/resources/images/" + (P6.getImage().getUrl().toString().substring(P6.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;
@@ -481,7 +498,7 @@ public class JuegoController {
             }
         }
         @FXML
-        public void lanzarCartaP7 () {
+        public void lanzarCartaP7 () throws IOException {
             String imagen = "src/main/resources/images/" + (P7.getImage().getUrl().toString().substring(P7.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;
@@ -512,7 +529,7 @@ public class JuegoController {
             }
         }
         @FXML
-        public void lanzarCartaP8 () {
+        public void lanzarCartaP8 () throws IOException {
             String imagen = "src/main/resources/images/" + (P8.getImage().getUrl().toString().substring(P8.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;
@@ -543,7 +560,7 @@ public class JuegoController {
             }
         }
         @FXML
-        public void lanzarCartaP9 () {
+        public void lanzarCartaP9 () throws IOException {
             String imagen = "src/main/resources/images/" + (P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;
@@ -574,7 +591,7 @@ public class JuegoController {
             }
         }
         @FXML
-        public void lanzarCartaP10 () {
+        public void lanzarCartaP10 () throws IOException {
             String imagen = "src/main/resources/images/" + (P10.getImage().getUrl().toString().substring(P10.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;
@@ -605,7 +622,7 @@ public class JuegoController {
             }
         }
         @FXML
-        public void lanzarCartaP11 () {
+        public void lanzarCartaP11 () throws IOException {
             String imagen = "src/main/resources/images/" + (P11.getImage().getUrl().toString().substring(P11.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
             System.out.println(imagen);
             cambiar = false;

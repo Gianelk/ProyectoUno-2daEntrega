@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectouno_entrega_2.MenuController">
+   <children>
+      <ImageView fitHeight="562.0" fitWidth="834.0" layoutX="-265.0" layoutY="-143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Background2.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="81.0" layoutY="136.0" mnemonicParsing="false" onAction="#rojo" text="Red" />
+      <Button layoutX="88.0" layoutY="203.0" mnemonicParsing="false" onAction="#amarillo" text="Yellow" />
+      <Button layoutX="164.0" layoutY="124.0" mnemonicParsing="false" onAction="#azul" text="blue" />
+      <Button layoutX="164.0" layoutY="203.0" mnemonicParsing="false" onAction="#verde" text="Green" />
+   </children>
+</Pane>
