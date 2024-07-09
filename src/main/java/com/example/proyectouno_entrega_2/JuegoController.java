@@ -1,10 +1,15 @@
 package com.example.proyectouno_entrega_2;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-
+import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,9 +42,8 @@ public class JuegoController {
     public ImageView J11;
     public ImageView CartaMedio;
     public ImageView NoPuedesJugar;
-
-
-
+    public Label nombreBot;
+    public Label nombreJugador;
 
     static Mazo mazo=new Mazo();
     static Mesa mesa=new Mesa();
@@ -50,7 +54,7 @@ public class JuegoController {
     static boolean cambiar=false;
 
     @FXML
-    public void crear(){
+    public static void crear(){
         mazo.crearCartas();
         jugadors.add(jugador);
         jugadors.add(jugadorBot);
@@ -64,6 +68,8 @@ public class JuegoController {
     }
     @FXML
     public void prueba() throws FileNotFoundException {
+        nombreBot.setText("JoselitoBot");
+        nombreJugador.setText("Player 1");
         File file= new File("src/main/resources/images/Blanco.png");
         Image image2=new Image(file.toURI().toString());
         File file2= new File(mesa.getPrimera().getUrl());
