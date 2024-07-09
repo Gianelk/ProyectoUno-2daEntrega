@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectouno_entrega_2.MenuController">
    <children>
@@ -11,9 +12,14 @@
             <Image url="@../../../images/Background2.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="81.0" layoutY="136.0" mnemonicParsing="false" onAction="#rojo" text="Red" />
-      <Button layoutX="88.0" layoutY="203.0" mnemonicParsing="false" onAction="#amarillo" text="Yellow" />
-      <Button layoutX="164.0" layoutY="124.0" mnemonicParsing="false" onAction="#azul" text="blue" />
-      <Button layoutX="164.0" layoutY="203.0" mnemonicParsing="false" onAction="#verde" text="Green" />
+      <Button layoutX="-6.0" layoutY="-18.0" mnemonicParsing="false" onAction="#rojo" prefHeight="136.0" prefWidth="215.0" style="-fx-background-color: #FF0000;" />
+      <Button layoutX="-24.0" layoutY="264.0" mnemonicParsing="false" onAction="#amarillo" prefHeight="136.0" prefWidth="224.0" style="-fx-background-color: #FFFF00;" />
+      <Button layoutX="209.0" layoutY="-2.0" mnemonicParsing="false" onAction="#azul" prefHeight="120.0" prefWidth="215.0" style="-fx-background-color: #0000FF;" />
+      <Button layoutX="200.0" layoutY="264.0" mnemonicParsing="false" onAction="#verde" prefHeight="159.0" prefWidth="224.0" style="-fx-background-color: #3cb043;" />
+      <Label layoutX="25.0" layoutY="156.0" text="Selecciona un color" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="39.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

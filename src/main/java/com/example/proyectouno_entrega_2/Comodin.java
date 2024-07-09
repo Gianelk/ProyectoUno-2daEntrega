@@ -8,8 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
+
+import java.io.File;
 import java.io.IOException;
 import javafx.scene.control.ButtonType;
 import java.util.Scanner;
@@ -50,6 +53,9 @@ public class Comodin extends Carta {
         Stage VentanaEmergente = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Menu2.fxml"));
         Scene scene= new Scene(fxmlLoader.load(),400,400);
+        String filePath = "src/main/resources/images/icono.png";
+        Image icon = new Image(new File(filePath).toURI().toString());
+        VentanaEmergente.getIcons().add(icon);
         VentanaEmergente.setScene(scene);
         VentanaEmergente.show();
     }
