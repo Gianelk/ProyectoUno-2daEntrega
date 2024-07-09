@@ -30,6 +30,9 @@ public class Mesa extends LinkedList<Carta>{
     public Carta getPrimera() {
         return mazoMesa.getFirst();
     }
+    public Carta getCarta(int i) {
+        return mazoMesa.get(i);
+    }
 
     public Comodin getComodin(){
         return (Comodin) mazoMesa.getFirst();
@@ -43,6 +46,9 @@ public class Mesa extends LinkedList<Carta>{
     }
     public void eliminarCarta(){
         mazoMesa.removeFirst();
+    }
+    public void eliminarCarta1(int i){
+        mazoMesa.remove(i);
     }
 
     public void iniciarMesa(Mazo mazo){

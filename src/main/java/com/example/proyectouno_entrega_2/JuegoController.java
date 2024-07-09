@@ -247,6 +247,14 @@ public class JuegoController {
         }
         System.out.println(posibilidades);
     }
+    public static void rearmarMazo(){
+        if(mazo.getMazo().size()<5){
+            for(int i=1;i<mesa.mazoMesa.size();i++){
+                mazo.agregarCarta(mesa.getCarta(i));
+                mesa.eliminarCarta1(i);
+            }
+        }
+    }
     @FXML
     public static void evaluarBot(){
         Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
@@ -279,6 +287,7 @@ public class JuegoController {
         }
     }
         ordenar();
+        rearmarMazo();
     }
     public static void jugarCarta(int cartaJugar) throws IOException {
         Jugador jugador= jugadores.getJugadores(0);
@@ -313,6 +322,7 @@ public class JuegoController {
             evaluarBot();
             }
         }
+        rearmarMazo();
         ordenar();
     }
 
@@ -357,6 +367,9 @@ public class JuegoController {
             Image image=new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
         }
+        if(baraja.tamanobaraja()==0){
+            System.out.println("ganaste");}
+//Pnatalla de ganaste, solo se pone en p1 poruqe si tienes 1 siempre va a estar en p1
     }
     @FXML
     public void lanzarCartaP2() throws IOException {
