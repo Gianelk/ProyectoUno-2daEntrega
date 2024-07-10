@@ -69,6 +69,11 @@ public class JuegoController {
 
     @FXML
     public static void crear() {
+       mazo.mazo.clear();
+       mesa.mazoMesa.clear();;
+       jugador.cartasDisponibles.getBaraja().clear();
+       jugadorBot.cartasDisponibles.getBaraja().clear();
+       jugadores.getJugadores().clear();
         mazo.crearCartas();
         jugadors.add(jugador);
         jugadors.add(jugadorBot);
