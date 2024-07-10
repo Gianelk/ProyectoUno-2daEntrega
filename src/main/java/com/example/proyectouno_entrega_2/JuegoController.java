@@ -69,12 +69,6 @@ public class JuegoController {
 
     @FXML
     public static void crear() {
-       Mazo mazo = new Mazo();
-       Mesa mesa = new Mesa();
-       Jugador jugador = new Jugador("");
-       Jugador jugadorBot = new Jugador("Joselito Bot");
-       Jugadores jugadores = new Jugadores();
-        LinkedList<Jugador> jugadors = new LinkedList<>();
         mazo.crearCartas();
         jugadors.add(jugador);
         jugadors.add(jugadorBot);
