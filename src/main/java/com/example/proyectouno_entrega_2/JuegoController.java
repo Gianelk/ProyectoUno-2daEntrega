@@ -3,7 +3,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -50,11 +52,14 @@ public class JuegoController {
     public Label nombreBot;
     public Label nombreJugador;
     public ImageView mostrarUno;
+    public Label ingreso;
+    public TextField ingresoText;
+    public Button ingresoButton;
 
     static boolean verificar = false;
     static public Mazo mazo = new Mazo();
     static public Mesa mesa = new Mesa();
-    static public Jugador jugador = new Jugador("Perro");
+    static public Jugador jugador = new Jugador("");
     static public Jugador jugadorBot = new Jugador("Joselito Bot");
     static public Jugadores jugadores = new Jugadores();
     static public LinkedList<Jugador> jugadors = new LinkedList<>();
@@ -77,8 +82,18 @@ public class JuegoController {
 
     @FXML
     public void prueba() throws FileNotFoundException {
+        if (jugador.nombre.equals("")){
+            jugador.setNombre(ingresoText.getText());
+        }
+        ingreso.setText("");
+        ingresoButton.setScaleX(0);
+        ingresoButton.setScaleY(0);
+        ingresoButton.setScaleZ(0);
+        ingresoText.setScaleX(0);
+        ingresoText.setScaleY(0);
+        ingresoText.setScaleZ(0);
         nombreBot.setText("JoselitoBot");
-        nombreJugador.setText("Player 1");
+        nombreJugador.setText(jugador.nombre);
         File file = new File("src/main/resources/images/Blanco.png");
         Image image2 = new Image(file.toURI().toString());
         File file2 = new File(mesa.getPrimera().getUrl());
@@ -831,7 +846,7 @@ public class JuegoController {
         }
     }
 
-    public static void leerJsonYActualizar(String rutaArchivo, LinkedList<Carta> barajaJugador, LinkedList<Carta> barajaBot, LinkedList<Carta> mazoMesa, LinkedList<Carta> mazo, String nombreJugador) {
+    public static void leerJsonYActualizar(String rutaArchivo, LinkedList<Carta> barajaJugador, LinkedList<Carta> barajaBot, LinkedList<Carta> mazoMesa, LinkedList<Carta> mazo, String nombreJugador1) {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(rutaArchivo)) {
             GuardarDatos datos = gson.fromJson(reader, GuardarDatos.class);
@@ -848,7 +863,7 @@ public class JuegoController {
             mazo.clear();
             mazo.addAll(datos.getMazo());
 
-            nombreJugador = datos.getNombreJugador();
+            nombreJugador1 = datos.getNombreJugador();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -894,7 +909,9 @@ public class JuegoController {
         LinkedList<Carta> barajaBotLeer=jugadores.getJugadores(1).getCartasDisponibles().getBaraja();
         LinkedList<Carta> mazoMesaLeer=mesa.getMazoMesa();
         LinkedList<Carta> mazoLeer=mazo.getMazo();
-        leerJsonYActualizar("guardarPartida.json",barajaJugadorLeer,barajaBotLeer,mazoMesaLeer,mazoLeer,jugadores.getJugadores(0).nombre);
+        String nombreJugador = "";
+        leerJsonYActualizar("guardarPartida.json",barajaJugadorLeer,barajaBotLeer,mazoMesaLeer,mazoLeer,nombreJugador);
+        jugadores.getJugadores(0).setNombre(nombreJugador);
         polimorfismo(barajaJugadorLeer);
         polimorfismo(barajaBotLeer);
         polimorfismo(mazoLeer);

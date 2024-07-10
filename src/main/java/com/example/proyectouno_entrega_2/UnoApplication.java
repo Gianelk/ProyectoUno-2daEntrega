@@ -27,7 +27,6 @@ public class UnoApplication extends Application {
         String filePath = "src/main/resources/images/icono.png";
         Image icon = new Image(new File(filePath).toURI().toString());
         stage.getIcons().add(icon);
-
         scene.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
             if (event.getCode() == KeyCode.Q) {
                 if (mediaPlayer!= null) {

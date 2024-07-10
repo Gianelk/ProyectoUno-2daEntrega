@@ -1,14 +1,49 @@
 {
   "barajaJugador": [
     {
-      "numeroCarta": "3",
+      "numeroCarta": "0",
       "color": "G",
-      "url": "src/main/resources/images/3 G.png"
+      "url": "src/main/resources/images/0 G.png"
     },
     {
-      "numeroCarta": "8",
-      "color": "R",
-      "url": "src/main/resources/images/8 R.png"
+      "numeroCarta": "4",
+      "color": "G",
+      "url": "src/main/resources/images/4 G.png"
+    },
+    {
+      "numeroCarta": "3",
+      "color": "B",
+      "url": "src/main/resources/images/3 B.png"
+    },
+    {
+      "numeroCarta": "+2",
+      "color": "B",
+      "url": "src/main/resources/images/+2 B.png"
+    },
+    {
+      "numeroCarta": "C",
+      "color": "B",
+      "url": "src/main/resources/images/C B.png"
+    },
+    {
+      "numeroCarta": "0",
+      "color": "Y",
+      "url": "src/main/resources/images/0 Y.png"
+    },
+    {
+      "numeroCarta": "9",
+      "color": "Y",
+      "url": "src/main/resources/images/9 Y.png"
+    },
+    {
+      "numeroCarta": "6",
+      "color": "Y",
+      "url": "src/main/resources/images/6 Y.png"
+    },
+    {
+      "numeroCarta": "5",
+      "color": "Y",
+      "url": "src/main/resources/images/5 Y.png"
     }
   ],
   "barajaBot": [
@@ -18,136 +53,14 @@
       "url": "src/main/resources/images/1 B.png"
     },
     {
-      "numeroCarta": "3",
-      "color": "B",
-      "url": "src/main/resources/images/3 B.png"
-    }
-  ],
-  "mazoMesa": [
-    {
-      "numeroCarta": "9",
-      "color": "B",
-      "url": "src/main/resources/images/9 B.png"
-    },
-    {
-      "numeroCarta": "0",
-      "color": "B",
-      "url": "src/main/resources/images/0 B.png"
-    },
-    {
-      "numeroCarta": "#",
-      "color": "negro",
-      "url": "src/main/resources/images/#.png"
-    },
-    {
-      "numeroCarta": "5",
-      "color": "Y",
-      "url": "src/main/resources/images/5 Y.png"
-    },
-    {
-      "numeroCarta": "2",
-      "color": "Y",
-      "url": "src/main/resources/images/2 Y.png"
-    },
-    {
-      "numeroCarta": "4",
-      "color": "Y",
-      "url": "src/main/resources/images/4 Y.png"
-    },
-    {
-      "numeroCarta": "4",
-      "color": "G",
-      "url": "src/main/resources/images/4 G.png"
-    },
-    {
-      "numeroCarta": "4",
-      "color": "G",
-      "url": "src/main/resources/images/4 G.png"
-    },
-    {
-      "numeroCarta": "8",
-      "color": "G",
-      "url": "src/main/resources/images/8 G.png"
-    },
-    {
-      "numeroCarta": "8",
-      "color": "B",
-      "url": "src/main/resources/images/8 B.png"
-    },
-    {
-      "numeroCarta": "7",
-      "color": "B",
-      "url": "src/main/resources/images/7 B.png"
-    },
-    {
-      "numeroCarta": "X",
-      "color": "B",
-      "url": "src/main/resources/images/X B.png"
-    },
-    {
-      "numeroCarta": "#",
-      "color": "negro",
-      "url": "src/main/resources/images/#.png"
-    },
-    {
-      "numeroCarta": "3",
-      "color": "Y",
-      "url": "src/main/resources/images/3 Y.png"
-    },
-    {
-      "numeroCarta": "1",
-      "color": "Y",
-      "url": "src/main/resources/images/1 Y.png"
-    },
-    {
-      "numeroCarta": "2",
-      "color": "Y",
-      "url": "src/main/resources/images/2 Y.png"
-    },
-    {
-      "numeroCarta": "X",
-      "color": "Y",
-      "url": "src/main/resources/images/X Y.png"
-    },
-    {
-      "numeroCarta": "C",
-      "color": "Y",
-      "url": "src/main/resources/images/C Y.png"
-    },
-    {
-      "numeroCarta": "C",
-      "color": "R",
-      "url": "src/main/resources/images/C R.png"
-    },
-    {
       "numeroCarta": "2",
       "color": "R",
       "url": "src/main/resources/images/2 R.png"
     },
     {
-      "numeroCarta": "7",
-      "color": "R",
-      "url": "src/main/resources/images/7 R.png"
-    },
-    {
-      "numeroCarta": "7",
-      "color": "Y",
-      "url": "src/main/resources/images/7 Y.png"
-    },
-    {
-      "numeroCarta": "X",
-      "color": "Y",
-      "url": "src/main/resources/images/X Y.png"
-    },
-    {
-      "numeroCarta": "+2",
-      "color": "Y",
-      "url": "src/main/resources/images/+2 Y.png"
-    },
-    {
-      "numeroCarta": "4",
-      "color": "Y",
-      "url": "src/main/resources/images/4 Y.png"
+      "numeroCarta": "2",
+      "color": "B",
+      "url": "src/main/resources/images/2 B.png"
     },
     {
       "numeroCarta": "4",
@@ -155,114 +68,31 @@
       "url": "src/main/resources/images/4 B.png"
     },
     {
-      "numeroCarta": "6",
-      "color": "B",
-      "url": "src/main/resources/images/6 B.png"
-    },
-    {
-      "numeroCarta": "6",
-      "color": "B",
-      "url": "src/main/resources/images/6 B.png"
-    },
-    {
-      "numeroCarta": "6",
-      "color": "G",
-      "url": "src/main/resources/images/6 G.png"
-    },
-    {
-      "numeroCarta": "2",
-      "color": "G",
-      "url": "src/main/resources/images/2 G.png"
-    },
-    {
-      "numeroCarta": "0",
-      "color": "G",
-      "url": "src/main/resources/images/0 G.png"
-    },
-    {
-      "numeroCarta": "1",
-      "color": "G",
-      "url": "src/main/resources/images/1 G.png"
-    },
-    {
-      "numeroCarta": "C",
-      "color": "G",
-      "url": "src/main/resources/images/C G.png"
-    },
-    {
-      "numeroCarta": "+2",
-      "color": "G",
-      "url": "src/main/resources/images/+2 G.png"
-    },
-    {
-      "numeroCarta": "+2",
-      "color": "R",
-      "url": "src/main/resources/images/+2 R.png"
-    },
-    {
-      "numeroCarta": "6",
-      "color": "R",
-      "url": "src/main/resources/images/6 R.png"
-    },
-    {
-      "numeroCarta": "+4",
+      "numeroCarta": "#",
       "color": "negro",
-      "url": "src/main/resources/images/+4.png"
-    },
-    {
-      "numeroCarta": "+4",
-      "color": "negro",
-      "url": "src/main/resources/images/+4.png"
-    },
-    {
-      "numeroCarta": "3",
-      "color": "B",
-      "url": "src/main/resources/images/3 B.png"
-    },
+      "url": "src/main/resources/images/#.png"
+    }
+  ],
+  "mazoMesa": [
     {
       "numeroCarta": "3",
       "color": "G",
       "url": "src/main/resources/images/3 G.png"
     },
     {
-      "numeroCarta": "9",
-      "color": "G",
-      "url": "src/main/resources/images/9 G.png"
-    },
-    {
-      "numeroCarta": "#",
+      "numeroCarta": "+4",
       "color": "negro",
-      "url": "src/main/resources/images/#.png"
+      "url": "src/main/resources/images/+4.png"
     },
     {
-      "numeroCarta": "2",
+      "numeroCarta": "6",
       "color": "B",
-      "url": "src/main/resources/images/2 B.png"
-    },
-    {
-      "numeroCarta": "C",
-      "color": "B",
-      "url": "src/main/resources/images/C B.png"
-    },
-    {
-      "numeroCarta": "1",
-      "color": "B",
-      "url": "src/main/resources/images/1 B.png"
-    },
-    {
-      "numeroCarta": "2",
-      "color": "B",
-      "url": "src/main/resources/images/2 B.png"
+      "url": "src/main/resources/images/6 B.png"
     },
     {
       "numeroCarta": "X",
       "color": "B",
       "url": "src/main/resources/images/X B.png"
-    },
-    {
-      "numeroCarta": "5",
-      "color": "B",
-      "url": "src/main/resources/images/5 B.png"
     },
     {
       "numeroCarta": "+2",
@@ -272,9 +102,9 @@
   ],
   "mazo": [
     {
-      "numeroCarta": "6",
-      "color": "Y",
-      "url": "src/main/resources/images/6 Y.png"
+      "numeroCarta": "+2",
+      "color": "R",
+      "url": "src/main/resources/images/+2 R.png"
     },
     {
       "numeroCarta": "6",
@@ -282,29 +112,259 @@
       "url": "src/main/resources/images/6 R.png"
     },
     {
+      "numeroCarta": "5",
+      "color": "B",
+      "url": "src/main/resources/images/5 B.png"
+    },
+    {
+      "numeroCarta": "5",
+      "color": "B",
+      "url": "src/main/resources/images/5 B.png"
+    },
+    {
+      "numeroCarta": "3",
+      "color": "B",
+      "url": "src/main/resources/images/3 B.png"
+    },
+    {
+      "numeroCarta": "X",
+      "color": "R",
+      "url": "src/main/resources/images/X R.png"
+    },
+    {
+      "numeroCarta": "2",
+      "color": "B",
+      "url": "src/main/resources/images/2 B.png"
+    },
+    {
+      "numeroCarta": "5",
+      "color": "G",
+      "url": "src/main/resources/images/5 G.png"
+    },
+    {
+      "numeroCarta": "+2",
+      "color": "Y",
+      "url": "src/main/resources/images/+2 Y.png"
+    },
+    {
+      "numeroCarta": "0",
+      "color": "B",
+      "url": "src/main/resources/images/0 B.png"
+    },
+    {
+      "numeroCarta": "6",
+      "color": "R",
+      "url": "src/main/resources/images/6 R.png"
+    },
+    {
+      "numeroCarta": "5",
+      "color": "Y",
+      "url": "src/main/resources/images/5 Y.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "B",
+      "url": "src/main/resources/images/8 B.png"
+    },
+    {
+      "numeroCarta": "7",
+      "color": "B",
+      "url": "src/main/resources/images/7 B.png"
+    },
+    {
+      "numeroCarta": "4",
+      "color": "R",
+      "url": "src/main/resources/images/4 R.png"
+    },
+    {
+      "numeroCarta": "X",
+      "color": "Y",
+      "url": "src/main/resources/images/X Y.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "B",
+      "url": "src/main/resources/images/8 B.png"
+    },
+    {
+      "numeroCarta": "9",
+      "color": "B",
+      "url": "src/main/resources/images/9 B.png"
+    },
+    {
+      "numeroCarta": "7",
+      "color": "G",
+      "url": "src/main/resources/images/7 G.png"
+    },
+    {
+      "numeroCarta": "C",
+      "color": "B",
+      "url": "src/main/resources/images/C B.png"
+    },
+    {
+      "numeroCarta": "#",
+      "color": "negro",
+      "url": "src/main/resources/images/#.png"
+    },
+    {
+      "numeroCarta": "5",
+      "color": "G",
+      "url": "src/main/resources/images/5 G.png"
+    },
+    {
+      "numeroCarta": "X",
+      "color": "Y",
+      "url": "src/main/resources/images/X Y.png"
+    },
+    {
+      "numeroCarta": "1",
+      "color": "R",
+      "url": "src/main/resources/images/1 R.png"
+    },
+    {
+      "numeroCarta": "7",
+      "color": "R",
+      "url": "src/main/resources/images/7 R.png"
+    },
+    {
+      "numeroCarta": "+2",
+      "color": "Y",
+      "url": "src/main/resources/images/+2 Y.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "Y",
+      "url": "src/main/resources/images/8 Y.png"
+    },
+    {
       "numeroCarta": "4",
       "color": "B",
       "url": "src/main/resources/images/4 B.png"
     },
     {
-      "numeroCarta": "8",
+      "numeroCarta": "C",
       "color": "Y",
-      "url": "src/main/resources/images/8 Y.png"
+      "url": "src/main/resources/images/C Y.png"
     },
     {
-      "numeroCarta": "8",
+      "numeroCarta": "C",
+      "color": "G",
+      "url": "src/main/resources/images/C G.png"
+    },
+    {
+      "numeroCarta": "+4",
+      "color": "negro",
+      "url": "src/main/resources/images/+4.png"
+    },
+    {
+      "numeroCarta": "X",
+      "color": "G",
+      "url": "src/main/resources/images/X G.png"
+    },
+    {
+      "numeroCarta": "1",
       "color": "Y",
-      "url": "src/main/resources/images/8 Y.png"
+      "url": "src/main/resources/images/1 Y.png"
+    },
+    {
+      "numeroCarta": "2",
+      "color": "Y",
+      "url": "src/main/resources/images/2 Y.png"
+    },
+    {
+      "numeroCarta": "7",
+      "color": "Y",
+      "url": "src/main/resources/images/7 Y.png"
+    },
+    {
+      "numeroCarta": "X",
+      "color": "G",
+      "url": "src/main/resources/images/X G.png"
+    },
+    {
+      "numeroCarta": "C",
+      "color": "R",
+      "url": "src/main/resources/images/C R.png"
+    },
+    {
+      "numeroCarta": "+2",
+      "color": "G",
+      "url": "src/main/resources/images/+2 G.png"
+    },
+    {
+      "numeroCarta": "3",
+      "color": "Y",
+      "url": "src/main/resources/images/3 Y.png"
+    },
+    {
+      "numeroCarta": "4",
+      "color": "Y",
+      "url": "src/main/resources/images/4 Y.png"
     },
     {
       "numeroCarta": "9",
-      "color": "Y",
-      "url": "src/main/resources/images/9 Y.png"
+      "color": "R",
+      "url": "src/main/resources/images/9 R.png"
     },
     {
-      "numeroCarta": "0",
+      "numeroCarta": "7",
+      "color": "G",
+      "url": "src/main/resources/images/7 G.png"
+    },
+    {
+      "numeroCarta": "9",
+      "color": "B",
+      "url": "src/main/resources/images/9 B.png"
+    },
+    {
+      "numeroCarta": "9",
       "color": "R",
-      "url": "src/main/resources/images/0 R.png"
+      "url": "src/main/resources/images/9 R.png"
+    },
+    {
+      "numeroCarta": "5",
+      "color": "R",
+      "url": "src/main/resources/images/5 R.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "G",
+      "url": "src/main/resources/images/8 G.png"
+    },
+    {
+      "numeroCarta": "6",
+      "color": "Y",
+      "url": "src/main/resources/images/6 Y.png"
+    },
+    {
+      "numeroCarta": "2",
+      "color": "G",
+      "url": "src/main/resources/images/2 G.png"
+    },
+    {
+      "numeroCarta": "7",
+      "color": "Y",
+      "url": "src/main/resources/images/7 Y.png"
+    },
+    {
+      "numeroCarta": "4",
+      "color": "G",
+      "url": "src/main/resources/images/4 G.png"
+    },
+    {
+      "numeroCarta": "9",
+      "color": "G",
+      "url": "src/main/resources/images/9 G.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "Y",
+      "url": "src/main/resources/images/8 Y.png"
+    },
+    {
+      "numeroCarta": "2",
+      "color": "Y",
+      "url": "src/main/resources/images/2 Y.png"
     },
     {
       "numeroCarta": "+2",
@@ -317,204 +377,14 @@
       "url": "src/main/resources/images/X R.png"
     },
     {
-      "numeroCarta": "6",
-      "color": "Y",
-      "url": "src/main/resources/images/6 Y.png"
-    },
-    {
-      "numeroCarta": "9",
-      "color": "R",
-      "url": "src/main/resources/images/9 R.png"
-    },
-    {
-      "numeroCarta": "+2",
-      "color": "G",
-      "url": "src/main/resources/images/+2 G.png"
-    },
-    {
-      "numeroCarta": "5",
-      "color": "G",
-      "url": "src/main/resources/images/5 G.png"
-    },
-    {
-      "numeroCarta": "5",
-      "color": "R",
-      "url": "src/main/resources/images/5 R.png"
-    },
-    {
-      "numeroCarta": "5",
-      "color": "G",
-      "url": "src/main/resources/images/5 G.png"
-    },
-    {
-      "numeroCarta": "C",
-      "color": "G",
-      "url": "src/main/resources/images/C G.png"
-    },
-    {
-      "numeroCarta": "X",
-      "color": "R",
-      "url": "src/main/resources/images/X R.png"
-    },
-    {
       "numeroCarta": "C",
       "color": "R",
       "url": "src/main/resources/images/C R.png"
     },
     {
-      "numeroCarta": "7",
-      "color": "Y",
-      "url": "src/main/resources/images/7 Y.png"
-    },
-    {
-      "numeroCarta": "5",
+      "numeroCarta": "6",
       "color": "B",
-      "url": "src/main/resources/images/5 B.png"
-    },
-    {
-      "numeroCarta": "1",
-      "color": "R",
-      "url": "src/main/resources/images/1 R.png"
-    },
-    {
-      "numeroCarta": "0",
-      "color": "Y",
-      "url": "src/main/resources/images/0 Y.png"
-    },
-    {
-      "numeroCarta": "8",
-      "color": "G",
-      "url": "src/main/resources/images/8 G.png"
-    },
-    {
-      "numeroCarta": "X",
-      "color": "G",
-      "url": "src/main/resources/images/X G.png"
-    },
-    {
-      "numeroCarta": "2",
-      "color": "R",
-      "url": "src/main/resources/images/2 R.png"
-    },
-    {
-      "numeroCarta": "+2",
-      "color": "B",
-      "url": "src/main/resources/images/+2 B.png"
-    },
-    {
-      "numeroCarta": "3",
-      "color": "R",
-      "url": "src/main/resources/images/3 R.png"
-    },
-    {
-      "numeroCarta": "7",
-      "color": "B",
-      "url": "src/main/resources/images/7 B.png"
-    },
-    {
-      "numeroCarta": "3",
-      "color": "R",
-      "url": "src/main/resources/images/3 R.png"
-    },
-    {
-      "numeroCarta": "4",
-      "color": "R",
-      "url": "src/main/resources/images/4 R.png"
-    },
-    {
-      "numeroCarta": "5",
-      "color": "Y",
-      "url": "src/main/resources/images/5 Y.png"
-    },
-    {
-      "numeroCarta": "+4",
-      "color": "negro",
-      "url": "src/main/resources/images/+4.png"
-    },
-    {
-      "numeroCarta": "+2",
-      "color": "Y",
-      "url": "src/main/resources/images/+2 Y.png"
-    },
-    {
-      "numeroCarta": "#",
-      "color": "negro",
-      "url": "src/main/resources/images/#.png"
-    },
-    {
-      "numeroCarta": "1",
-      "color": "Y",
-      "url": "src/main/resources/images/1 Y.png"
-    },
-    {
-      "numeroCarta": "7",
-      "color": "G",
-      "url": "src/main/resources/images/7 G.png"
-    },
-    {
-      "numeroCarta": "5",
-      "color": "R",
-      "url": "src/main/resources/images/5 R.png"
-    },
-    {
-      "numeroCarta": "9",
-      "color": "B",
-      "url": "src/main/resources/images/9 B.png"
-    },
-    {
-      "numeroCarta": "7",
-      "color": "R",
-      "url": "src/main/resources/images/7 R.png"
-    },
-    {
-      "numeroCarta": "9",
-      "color": "R",
-      "url": "src/main/resources/images/9 R.png"
-    },
-    {
-      "numeroCarta": "1",
-      "color": "R",
-      "url": "src/main/resources/images/1 R.png"
-    },
-    {
-      "numeroCarta": "8",
-      "color": "R",
-      "url": "src/main/resources/images/8 R.png"
-    },
-    {
-      "numeroCarta": "C",
-      "color": "Y",
-      "url": "src/main/resources/images/C Y.png"
-    },
-    {
-      "numeroCarta": "3",
-      "color": "Y",
-      "url": "src/main/resources/images/3 Y.png"
-    },
-    {
-      "numeroCarta": "8",
-      "color": "B",
-      "url": "src/main/resources/images/8 B.png"
-    },
-    {
-      "numeroCarta": "4",
-      "color": "R",
-      "url": "src/main/resources/images/4 R.png"
-    },
-    {
-      "numeroCarta": "C",
-      "color": "B",
-      "url": "src/main/resources/images/C B.png"
-    },
-    {
-      "numeroCarta": "1",
-      "color": "G",
-      "url": "src/main/resources/images/1 G.png"
-    },
-    {
-      "numeroCarta": "2",
-      "color": "G",
-      "url": "src/main/resources/images/2 G.png"
+      "url": "src/main/resources/images/6 B.png"
     },
     {
       "numeroCarta": "9",
@@ -522,9 +392,134 @@
       "url": "src/main/resources/images/9 Y.png"
     },
     {
+      "numeroCarta": "2",
+      "color": "R",
+      "url": "src/main/resources/images/2 R.png"
+    },
+    {
+      "numeroCarta": "0",
+      "color": "R",
+      "url": "src/main/resources/images/0 R.png"
+    },
+    {
+      "numeroCarta": "1",
+      "color": "Y",
+      "url": "src/main/resources/images/1 Y.png"
+    },
+    {
+      "numeroCarta": "3",
+      "color": "R",
+      "url": "src/main/resources/images/3 R.png"
+    },
+    {
+      "numeroCarta": "+4",
+      "color": "negro",
+      "url": "src/main/resources/images/+4.png"
+    },
+    {
       "numeroCarta": "X",
+      "color": "B",
+      "url": "src/main/resources/images/X B.png"
+    },
+    {
+      "numeroCarta": "#",
+      "color": "negro",
+      "url": "src/main/resources/images/#.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "R",
+      "url": "src/main/resources/images/8 R.png"
+    },
+    {
+      "numeroCarta": "1",
+      "color": "B",
+      "url": "src/main/resources/images/1 B.png"
+    },
+    {
+      "numeroCarta": "4",
+      "color": "R",
+      "url": "src/main/resources/images/4 R.png"
+    },
+    {
+      "numeroCarta": "3",
       "color": "G",
-      "url": "src/main/resources/images/X G.png"
+      "url": "src/main/resources/images/3 G.png"
+    },
+    {
+      "numeroCarta": "C",
+      "color": "Y",
+      "url": "src/main/resources/images/C Y.png"
+    },
+    {
+      "numeroCarta": "5",
+      "color": "R",
+      "url": "src/main/resources/images/5 R.png"
+    },
+    {
+      "numeroCarta": "1",
+      "color": "R",
+      "url": "src/main/resources/images/1 R.png"
+    },
+    {
+      "numeroCarta": "4",
+      "color": "Y",
+      "url": "src/main/resources/images/4 Y.png"
+    },
+    {
+      "numeroCarta": "7",
+      "color": "R",
+      "url": "src/main/resources/images/7 R.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "R",
+      "url": "src/main/resources/images/8 R.png"
+    },
+    {
+      "numeroCarta": "3",
+      "color": "R",
+      "url": "src/main/resources/images/3 R.png"
+    },
+    {
+      "numeroCarta": "3",
+      "color": "Y",
+      "url": "src/main/resources/images/3 Y.png"
+    },
+    {
+      "numeroCarta": "+2",
+      "color": "G",
+      "url": "src/main/resources/images/+2 G.png"
+    },
+    {
+      "numeroCarta": "C",
+      "color": "G",
+      "url": "src/main/resources/images/C G.png"
+    },
+    {
+      "numeroCarta": "7",
+      "color": "B",
+      "url": "src/main/resources/images/7 B.png"
+    },
+    {
+      "numeroCarta": "1",
+      "color": "G",
+      "url": "src/main/resources/images/1 G.png"
+    },
+    {
+      "numeroCarta": "+4",
+      "color": "negro",
+      "url": "src/main/resources/images/+4.png"
+    },
+    {
+      "numeroCarta": "2",
+      "color": "G",
+      "url": "src/main/resources/images/2 G.png"
+    },
+    {
+      "numeroCarta": "1",
+      "color": "G",
+      "url": "src/main/resources/images/1 G.png"
     },
     {
       "numeroCarta": "6",
@@ -532,20 +527,25 @@
       "url": "src/main/resources/images/6 G.png"
     },
     {
-      "numeroCarta": "7",
+      "numeroCarta": "#",
+      "color": "negro",
+      "url": "src/main/resources/images/#.png"
+    },
+    {
+      "numeroCarta": "6",
       "color": "G",
-      "url": "src/main/resources/images/7 G.png"
+      "url": "src/main/resources/images/6 G.png"
+    },
+    {
+      "numeroCarta": "8",
+      "color": "G",
+      "url": "src/main/resources/images/8 G.png"
     },
     {
       "numeroCarta": "9",
       "color": "G",
       "url": "src/main/resources/images/9 G.png"
-    },
-    {
-      "numeroCarta": "+4",
-      "color": "negro",
-      "url": "src/main/resources/images/+4.png"
     }
   ],
-  "nombreJugador": "Perro"
+  "nombreJugador": "kkokokoko"
 }

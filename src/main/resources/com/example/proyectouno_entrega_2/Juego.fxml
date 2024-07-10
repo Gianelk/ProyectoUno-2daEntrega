@@ -64,9 +64,9 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fx:id="CartaMedio" fitHeight="205.0" fitWidth="163.0" layoutX="577.0" layoutY="248.0" onMouseClicked="#prueba" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="CartaMedio" fitHeight="205.0" fitWidth="163.0" layoutX="570.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/3%20R.png" />
+            <Image url="@../../../images/Blanco.png" />
          </image></ImageView>
       <HBox alignment="BOTTOM_CENTER" layoutX="-7.0" layoutY="516.0" prefHeight="177.0" prefWidth="1300.0">
          <children>
@@ -136,5 +136,16 @@
             <Font name="Comic Sans MS Bold" size="19.0" />
          </font></Label>
       <ImageView fx:id="mostrarUno" fitHeight="138.0" fitWidth="136.0" layoutX="51.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="ingresoText" layoutX="546.0" layoutY="378.0" prefHeight="32.0" prefWidth="194.0" />
+      <Button fx:id="ingresoButton" layoutX="604.0" layoutY="446.0" mnemonicParsing="false" onAction="#prueba" text="Aceptar">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="ingreso" layoutX="502.0" layoutY="297.0" prefHeight="41.0" prefWidth="297.0" text="Ingresa tu nombre de usuario" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="20.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
