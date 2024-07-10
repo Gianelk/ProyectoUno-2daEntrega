@@ -27,7 +27,7 @@ public class MenuController {
     }
     @FXML
     public void Salir(ActionEvent event){
-        ButtonType buttonType=new ButtonType("a");
+        ButtonType buttonType=new ButtonType("");
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
         alert.setHeaderText("¿Seguro que quieres cerrar del juego?");
