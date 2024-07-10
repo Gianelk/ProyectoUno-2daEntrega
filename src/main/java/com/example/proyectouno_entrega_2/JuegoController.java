@@ -55,6 +55,7 @@ public class JuegoController {
     public Label ingreso;
     public TextField ingresoText;
     public Button ingresoButton;
+    public Label avisoUno;
 
     static boolean verificar = false;
     static public Mazo mazo = new Mazo();
@@ -68,6 +69,12 @@ public class JuegoController {
 
     @FXML
     public static void crear() {
+       Mazo mazo = new Mazo();
+       Mesa mesa = new Mesa();
+       Jugador jugador = new Jugador("");
+       Jugador jugadorBot = new Jugador("Joselito Bot");
+       Jugadores jugadores = new Jugadores();
+        LinkedList<Jugador> jugadors = new LinkedList<>();
         mazo.crearCartas();
         jugadors.add(jugador);
         jugadors.add(jugadorBot);
@@ -85,6 +92,7 @@ public class JuegoController {
         if (jugador.nombre.equals("")){
             jugador.setNombre(ingresoText.getText());
         }
+        avisoUno.setText("");
         ingreso.setText("");
         ingresoButton.setScaleX(0);
         ingresoButton.setScaleY(0);
@@ -324,7 +332,7 @@ public class JuegoController {
         rearmarMazo();
     }
 
-    public static void jugarCarta(int cartaJugar) throws IOException {
+    public static void jugarCarta(int cartaJugar, MouseEvent event) throws IOException {
         Jugador jugador = jugadores.getJugadores(0);
         Baraja baraja = jugador.cartasDisponibles;
         int tamanoBaraja = baraja.tamanobaraja();
@@ -354,7 +362,6 @@ public class JuegoController {
             } else {
                 Baraja barajabot = jugadores.getJugadores(1).cartasDisponibles;
                 barajabot.jugadaBot(mesa, mazo);
-                MouseEvent event = null;
                 evaluarBot(event);
             }
         }
@@ -368,7 +375,10 @@ public class JuegoController {
         LinkedList<Carta> mazoGuardar = mazo.getMazo();
         guardarPartida(barajaJugadorGuardar, barajaBotGuardar, mazoMesaGuardar, mazoGuardar, nombreJug);
     }
-
+    @FXML
+    public void cantarUno(){
+        verificar=true;
+    }
     @FXML
     public void lanzarCartaP1(MouseEvent event) throws InterruptedException, IOException {
         String imagen = "src/main/resources/images/" + (P1.getImage().getUrl().toString().substring(P1.getImage().getUrl().toString().lastIndexOf("/") + 1)).replaceAll("%20", " ");
@@ -380,7 +390,7 @@ public class JuegoController {
         posibilidades = baraja.evaluarCarta(mesa);
         System.out.println(posibilidades);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(0);
+            jugarCarta(0,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -405,13 +415,26 @@ public class JuegoController {
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
         } else {
+            if (baraja.tamanobaraja() != 0) {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;}
         }
         if (baraja.tamanobaraja() == 0) {
-            System.out.println("ganaste");
-            Ganar(event);
+            if(verificar) {
+                System.out.println("ganaste");
+                Ganar(event);
+            }else{
+                avisoUno.setText("No presionaste UNO! :c");
+                baraja.agregarCarta(mazo.getPrimeraMazo(0));
+                baraja.agregarCarta(mazo.getPrimeraMazo(1));
+                mazo.eliminarCarta(0);
+                mazo.eliminarCarta(0);
+                File file2 = new File("src/main/resources/images/Blanco.png");
+                Image image = new Image(file2.toURI().toString());
+                mostrarUno.setImage(image);
+            }
         }
 //Pnatalla de ganaste, solo se pone en p1 poruqe si tienes 1 siempre va a estar en p1
     }
@@ -426,7 +449,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(1);
+            jugarCarta(1,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -454,6 +477,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -467,7 +491,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(2);
+            jugarCarta(2,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -495,6 +519,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -508,7 +533,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(3);
+            jugarCarta(3,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -536,6 +561,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -549,7 +575,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(4);
+            jugarCarta(4,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -577,6 +603,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -590,7 +617,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(5);
+            jugarCarta(5,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -618,6 +645,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -631,7 +659,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(6);
+            jugarCarta(6,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -659,6 +687,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -672,7 +701,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(7);
+            jugarCarta(7,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -700,6 +729,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -713,7 +743,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(8);
+            jugarCarta(8,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -741,6 +771,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -754,7 +785,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(9);
+            jugarCarta(9,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -782,6 +813,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
@@ -795,7 +827,7 @@ public class JuegoController {
         Baraja baraja = jugador.cartasDisponibles;
         posibilidades = baraja.evaluarCarta(mesa);
         if (!posibilidades.isEmpty()) {
-            jugarCarta(10);
+            jugarCarta(10,event);
             if (cambiar) {
                 File file4 = new File("src/main/resources/images/Blanco.jpg");
                 Image image4 = new Image(file4.toURI().toString());
@@ -823,6 +855,7 @@ public class JuegoController {
             File file2 = new File("src/main/resources/images/Blanco.png");
             Image image = new Image(file2.toURI().toString());
             mostrarUno.setImage(image);
+            verificar=false;
         }
     }
 
