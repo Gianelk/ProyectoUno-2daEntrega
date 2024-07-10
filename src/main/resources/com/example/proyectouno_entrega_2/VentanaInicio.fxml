@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectouno_entrega_2.GanarPerderController">
+   <children>
+      <ImageView fitHeight="440.0" fitWidth="612.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Background2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="203.0" layoutY="279.0" onMouseClicked="#volverMenu2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Jugar-9-7-2024.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="222.0" fitWidth="275.0" layoutX="175.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/icono.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

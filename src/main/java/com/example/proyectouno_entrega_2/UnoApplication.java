@@ -22,8 +22,8 @@ public class UnoApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         music();
-        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Menu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaInicio.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
         String filePath = "src/main/resources/images/icono.png";
         Image icon = new Image(new File(filePath).toURI().toString());
         stage.getIcons().add(icon);
