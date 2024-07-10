@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.proyectouno_entrega_2.VentanaGanarController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectouno_entrega_2.GanarPerderController">
+   <children>
+      <ImageView fitHeight="524.0" fitWidth="716.0" layoutX="-158.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/mueble.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="201.0" fitWidth="126.0" layoutX="159.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/homer.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="61.0" fitWidth="155.0" layoutX="139.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Has-ganado-9-7-2024.gif" />
+         </image>
+      </ImageView>
+      <Button layoutX="304.0" layoutY="374.0" mnemonicParsing="false" onAction="#volverMenu" text="Volver al menu" />
+   </children>
+</Pane>

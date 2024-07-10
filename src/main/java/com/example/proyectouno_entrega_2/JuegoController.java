@@ -254,14 +254,14 @@ public class JuegoController {
     public static void Ganar(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaGanar.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.show();
     }
     public static void Perder(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaPerder.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1300, 700);
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.show();
     }
