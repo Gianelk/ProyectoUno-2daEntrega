@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 import static com.example.proyectouno_entrega_2.Comodin.ventanaColor;
+import static com.example.proyectouno_entrega_2.JuegoController.crearPuntaje;
 
 public class JuegoController {
     public ImageView P1;
@@ -67,6 +68,7 @@ public class JuegoController {
     static public LinkedList<Jugador> jugadors = new LinkedList<>();
     static boolean cambiar = false;
     static int j = 1;
+    static public LinkedList<Puntaje> puntajes= new LinkedList<>();
 
     @FXML
     public static void crear() {
@@ -76,6 +78,7 @@ public class JuegoController {
        jugadorBot.cartasDisponibles.getBaraja().clear();
        jugadores.getJugadores().clear();
         mazo.crearCartas();
+        jugador.setNombre("");
         jugadors.add(jugador);
         jugadors.add(jugadorBot);
         jugadores.setJugadores(jugadors);
@@ -259,7 +262,39 @@ public class JuegoController {
 
         }
     }
+    public static int crearPuntaje(LinkedList<Carta> baraja){
+        int puntaje=0;
+        for (int i = 0; i < baraja.size(); i++) {
+            if(baraja.get(i).numeroCarta.equals("+2")||baraja.get(i).numeroCarta.equals("C")||baraja.get(i).numeroCarta.equals("X")){
+                puntaje=puntaje+20;
+            } else if(baraja.get(i).numeroCarta.equals("+4")||baraja.get(i).numeroCarta.equals("#")){
+                puntaje=puntaje+50;
+            }
+            else {
+                puntaje=puntaje+Integer.parseInt(baraja.get(i).numeroCarta);
+            }
+        }
+        return puntaje;
+    }
+    public static void puntajesAnadir(Puntaje puntaje){
+        if(!puntajes.isEmpty()) {
+            for (int i = 0; i < puntajes.size(); i++) {
+                if (puntajes.get(i).getPuntaje() < puntaje.getPuntaje()) {
+                    puntajes.add(i, puntaje);
+                    break;
+                }
+            }
+        }else{
+            puntajes.add(puntaje);
+        }
+    }
     public static void Ganar(MouseEvent event) throws IOException {
+        Puntaje puntaje= new Puntaje(jugador.nombre,crearPuntaje(jugadorBot.cartasDisponibles.getBaraja()));
+        jugadorBot.cartasDisponibles.mostrarMiBaraja();
+        System.out.println(puntaje.getPuntaje());
+        System.out.println(puntajes);
+        puntajesAnadir(puntaje);
+        guardarPartidaPuntajes(puntajes);
         FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaGanar.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
@@ -267,6 +302,9 @@ public class JuegoController {
         stage.show();
     }
     public static void Perder(MouseEvent event) throws IOException {
+        Puntaje puntaje= new Puntaje("JoselitoBot",crearPuntaje(jugador.cartasDisponibles.getBaraja()));
+        puntajesAnadir(puntaje);
+        guardarPartidaPuntajes(puntajes);
         FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaPerder.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
@@ -963,5 +1001,18 @@ public class JuegoController {
         stage.setScene(scene);
         stage.show();
     }
-
+    public static void guardarPartidaPuntajes(LinkedList<Puntaje> puntajes ){
+        GuardarPuntajes guardarPuntajes= new GuardarPuntajes();
+        guardarPuntajes.setPuntajes(puntajes);
+        escribirJsonPuntajes(guardarPuntajes,"guardarPartidaPuntajes.json");
+    }
+    public static void escribirJsonPuntajes(GuardarPuntajes datos, String rutaArchivo) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (FileWriter writer = new FileWriter(rutaArchivo)) {
+            gson.toJson(datos, writer);
+            System.out.println("Archivo JSON actualizado: " + rutaArchivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
