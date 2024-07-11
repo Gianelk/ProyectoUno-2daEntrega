@@ -27,5 +27,6 @@
             <Font name="Comic Sans MS Bold" size="17.0" />
          </font>
       </Button>
+      <Button layoutX="212.0" layoutY="494.0" mnemonicParsing="false" onAction="#pantallaEstadisticas" text="Estadisticas" />
    </children>
 </Pane>

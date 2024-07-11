@@ -73,4 +73,13 @@ public class MenuController {
         stage.show();
         JuegoController.usarJson();
     }
+    @FXML
+    public void pantallaEstadisticas(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("Estadisticas.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+        stage.setScene(scene);
+        stage.show();
+        JuegoController.crear();
+    }
 }
