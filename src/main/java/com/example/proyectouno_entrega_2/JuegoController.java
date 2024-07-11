@@ -290,6 +290,7 @@ public class JuegoController {
     }
     public static void Ganar(MouseEvent event) throws IOException {
         Puntaje puntaje= new Puntaje(jugador.nombre,crearPuntaje(jugadorBot.cartasDisponibles.getBaraja()));
+        leerJsonPuntaje("guardarPartidaPuntajes.json",puntajes);
         jugadorBot.cartasDisponibles.mostrarMiBaraja();
         System.out.println(puntaje.getPuntaje());
         System.out.println(puntajes);
@@ -303,6 +304,7 @@ public class JuegoController {
     }
     public static void Perder(MouseEvent event) throws IOException {
         Puntaje puntaje= new Puntaje("JoselitoBot",crearPuntaje(jugador.cartasDisponibles.getBaraja()));
+        leerJsonPuntaje("guardarPartidaPuntajes.json",puntajes);
         puntajesAnadir(puntaje);
         guardarPartidaPuntajes(puntajes);
         FXMLLoader fxmlLoader = new FXMLLoader(UnoApplication.class.getResource("VentanaPerder.fxml"));
@@ -1011,6 +1013,18 @@ public class JuegoController {
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             gson.toJson(datos, writer);
             System.out.println("Archivo JSON actualizado: " + rutaArchivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void leerJsonPuntaje(String rutaArchivo, LinkedList<Puntaje> puntaje) {
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader(rutaArchivo)) {
+            GuardarPuntajes datos = gson.fromJson(reader, GuardarPuntajes.class);
+
+            //puntaje.clear();
+            puntaje.addAll(datos.getPuntajes());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
